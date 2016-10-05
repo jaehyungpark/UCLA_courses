@@ -1,6 +1,6 @@
 # UCLA Course Materials
-This will be my repository for all CS and EE class I've took. <br />
-I will be adding all relevant class/project codes, materials, hws I'vI've took.
+This will be the repository for relevant CS and EE class I've took. <br />
+Materials will include notes, pdfs, class/project codes, and homeworks.
 
 # List of Materials
 Markup: * Computer Science
@@ -17,4 +17,4 @@ Markup: * Computer Science
 			   * EE 115A
 			    * EE 115C
 				 * EE 133A
-Updated: October 2016
+
