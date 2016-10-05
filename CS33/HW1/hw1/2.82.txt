@@ -1,0 +1,51 @@
+// Problem 2.82
+
+A. (x<y) == (-x>-y)
+Answer is False
+
+In case we set x = INT_MIN and y = 1
+LHS: INT_MIN < 1
+because -INT_MIN == INT_MIN for 2's complement
+RHS: -INT_MIN == INT_MIN < -1
+
+Since LHS != RHS, the answer is false
+
+B. ((x+y)<<4) +y-x == 17*y+15*x
+Answer is True
+
+LHS: right shift by 4 for (x+y) can be written as 16*x+16*y
+thus, 16*x+16*y+y-x == 17*y+15*x which LHS == RHS.
+
+C. ~x+~y+1 == ~(x+y)
+Answer is True
+
+We can write the LHS as below
+LHS: ~x+~y+1 = (-1 - x) + (-1 - y) +1 = - x - y -1
+We can also write the RHS as below
+RHS: ~(x+y) = - x - y -1
+
+Since LHS = RHS, the answer is true
+
+D. (ux-uy) == -(unsigned)(y-x)
+Answer is True
+
+We can write RHS as below
+-(unsigned)(y-x) = -(uy-ux) = (ux - uy) which is the same as LHS
+We can see that unsigned and signed bit patterns doesn't change
+by negating (uy-ux), we get ux-uy.
+
+E. ((x >> 2) << 2) <= x
+Answer is True
+
+Assuming we have a w = 8 bit number, taking right shift drops the last
+2 bits, 7th and 6th bits respectively and replaces them with 0s. 
+Taking left shift adds 0 after the first two bits, 0th and 1st 
+respectively. For example, the end result looks like below
+
+Initially(Tmax): 01111111(2)
+Right shift by 2: 00011111(2)
+Left shift by 2: 01111100(2)
+
+Which is always smaller or equal than the bit value of original x
+
+

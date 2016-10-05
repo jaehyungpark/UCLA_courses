@@ -1,0 +1,107 @@
+1. Rewrite the sfrob program from HW5 that uses system calls instead of 
+   <stdio.h> to read STDIN and write STDOUT.
+
+2. After writing sfrobu.c, used HW5 test script to see if the program is well
+   functioning.
+   $ ./test.sh
+   The output does not shows exactly from HW5. I get Comparisons: 14
+   From the output screen it is missing 'N E M eot sp #'
+
+   I tried to fix this issue, but couldn't figured it out.
+
+Comparisons: 14
+0000000   *   h   X   E   ]   D  sp   *   {   _   C   I   A  sp   *   ~
+0000020   B   O  sp   *   L   E   R  sp   #   @   _   G   Z   Y  sp   #
+0000040   F   K   P   S  sp   #   E   \   O   X  sp   #   ^   B   O  sp
+0000060
+
+   Output from sfrob.c shows as below:
+
+Comparisons: 17
+0000000   *   h   X   E   ]   D  sp   *   {   _   C   I   A  sp   *   ~
+0000020   B   O  sp   *   L   E   R  sp   #   N   E   M eot  sp   #   @
+0000040   _   G   Z   Y  sp   #   F   K   P   S  sp   #   E   \   O   X
+0000060  sp   #   ^   B   O  sp
+0000066
+
+3. Generated a random file that is bigger than 5000000 bytes.
+   Made a simple python script to repeat test case line
+   '*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4' about
+   100000 times. 'test.txt' file was about 5400000 bytes big.
+
+4. Used the generated file and time command to compare between sfrob and sfrobu
+$ time ./sfrob < test.txt
+real    0m0.003s
+user    0m0.001s
+sys     0m0.001s
+
+$ time ./sfrobu < test.txt
+Comparisons: 15851384
+real    0m8.888s
+user    0m0.929s
+sys     0m7.859s
+
+Looking at the overall sys time, sfrob shows better performance over sfrobu.
+
+Used different number of lines to check the performance for sfrobu.
+
+line       Comparisons
+10         512
+100        7448
+1000       101750
+5000       609556
+10000      1303999
+50000      7500761
+100000     15851384
+
+It was hard to find the pattern of the line to comparisons ratio.
+For smaller cases, it's hard to find a specific pattern, for larger cases,
+it follows O(NlogN) time complexity by qsort.
+
+5. Created a shell script sfrobs.sh and used the time command to compare the
+   overall performance of sfrobs.sh to the other two programs.
+   
+$ time printf '*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4' 
+|./sfrob
+
+real    0m0.002s
+user    0m0.000s
+sys     0m0.001s
+
+$ time printf '*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4' 
+|./sfrobu
+
+real    0m0.004s
+user    0m0.000s
+sys     0m0.002s
+
+$ time printf '*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4' 
+|./sfrobs.sh
+
+real    0m0.006s
+user    0m0.003s
+sys     0m0.006s
+
+Used the same command but with 50 lines of '*~BO *{_CIA *hXE]D *LER #@_GZY 
+#E\\OX #^BO #FKPS #NEM\4' to see the difference.
+
+#sfrob
+
+real    0m0.002s
+user    0m0.001s
+sys     0m0.001s
+
+#sfrobu
+
+real    0m0.002s
+user    0m0.000s
+sys     0m0.003s
+
+#sfrobs.sh
+
+real    0m0.005s
+user    0m0.002s
+sys     0m0.007s
+
+Overall, looking at sys time, sfrob is the fastest, sfrobu is slightly slower,
+and sfrobs.sh is the slowest among the other two.

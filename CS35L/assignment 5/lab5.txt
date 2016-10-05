@@ -1,0 +1,100 @@
+1. Downloaded the buggy version of coreutils and unzip the tar file
+$ wget http://web.cs.ucla.edu/classes/spring16/cs35L/assign/
+coreutils-with-bug.tar.gz
+$ tar -xvf coreutils-with-bug.tar.gz
+
+2. Configure and make the file
+$ cd coreutils-with-bug
+$ ./configure
+$ make
+
+Waiting for a long time, it did configured successfully, but failed to make.
+Got an error message saying "error: conflicting types for 'futimens'"
+Also, it says files included from utimecmp.h and utimecmp.c
+
+3. I downloaded the patch file and applied it
+$ wget http://web.cs.ucla.edu/classes/spring16/cs35L/assign/coreutils.diff
+$ patch -p0 <coreutils.diff
+
+Files such as src/tee.c, src/touch.c, src/copy.c, lib/utimens.h, lib/utimens.c
+were successfully patched
+
+4. Reconfigured and make the file
+$ ./configure
+$ make
+
+This time, it was successfully build with no errors
+It seems the original coreutils files had ...
+
+5. This time, we need to reproduce the bug. I made 3 files that were given
+as an example in the class website; now, now1, wwi-armistice
+
+$ tmp=$(mktemp -d)
+$ cd $tmp
+$ touch -d '1918-11-11 11:00 GMT' wwi-armistice
+$ touch now
+$ sleep 1
+$ touch now1
+$ cd ~/CS35L/week5/coreutils-with-bug/src  #change directory
+$ ./ls -lt --full-time /tmp/wwi-armistice now now1
+
+I get the following output:
+
+-rw-r--r-- 1 ronaq    csugrad 0 1918-11-11 03:00:00.000000000 -0800 /tmp/wwi-
+armistice
+-rw-r--r-- 1 jaehyung eeugrad 0 2016-05-03 22:03:51.876300671 -0700 now1
+-rw-r--r-- 1 jaehyung eeugrad 0 2016-05-03 22:03:44.395103954 -0700 now
+
+6. This time, use gdb to figure out at which point the program is breaking.
+From the tmp direction, use below command to use gdb for ls
+since 
+$gdb ~/CS35L/week5/coreutils-with-bug/src/ls
+
+Use the following command. Looking at ls.c via emacs, a function named
+cmp_mtime was called multiple times. Just like the name, cmp_mtime seems
+to compare the time, so set breakpoint in gdb to this function.
+(gdb) break cmp_mtime
+(gdb) list
+(gdb) si
+
+Using si, it shows that cmp_mtime is called from a function named
+timespec_cmp in /lib/timespec.h
+Use emacs to open timespec.h in /lib directory.
+
+timespec_cmp(struct timespec a, struct timespec b)
+{
+	int diff = a.tv_sec - b.tv_sec;
+	return diff ? diff : a.tv_nsec - b.tv_nsec;
+}
+
+The above code is the code for timespec_cmp in timespec.h
+The line, 'int diff = a.tv_sec - b.tv_sec;' seems to be the problem where
+integer overflow happened. To fix this, change int variable into something
+different, use 'long long int' instead which can be replaced.
+
+After figuring out where the problem is, made a copy of timespec.h and
+fixed the bug. Then, use emacs to record the changing content in ChangeLog
+(emacs) C-x 4 a
+
+After this step, create a diff file out of the fixed version to the
+original file using the command below:
+
+$diff -u coreutils-with-bug/lib/timespec.h ~/CS35L/week5/timespec.h >lab5.diff
+and copy and paste the changelong entry in to lab5.diff files.
+
+7. Last step is to reproduce the issue. Going over the process via
+SEASnet Linux server, I get the output as below:
+
+-rw-r--r-- 1 jaehyung eeugrad 0 2054-12-17 09:28:16.000000000 -0800 wwi-armisti
+ce
+-rw-r--r-- 1 jaehyung eeugrad 0 2016-05-03 23:09:12.324434000 -0700 now1
+-rw-r--r-- 1 jaehyung eeugrad 0 2016-05-03 23:09:06.972958000 -0700 now
+
+The timestampe for wwi-armistice seems not correct. Doing some research
+and some help from the TA, this is caused that the SEASnet Network File 
+System uses unsigned 32-bit time stamps where the local Linux server uses
+signed 32-bit time stamps for its file system. Because of this, time that 
+goes before the negative value boundary will be changed as a positive value, 
+which causes year 1918 to be shown as 2054 instead.
+
+To fix this problem, touching this file on a local file system will work.

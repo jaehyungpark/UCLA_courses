@@ -1,0 +1,95 @@
+0. Since git is preinstalled in seasnet, I enabled the PATH
+$ export PATH=/usr/local/cs/bin:$PATH
+
+1. Cloned Savannah gnu repository via git clone in git folder
+$ git clone git://git.savannah.gnu.org/diffutils.git
+
+2. Generated both git-log.txt and git-tags.txt using git log and git tag
+$ git log >git-log.txt
+$ git tag >git-tags.txt
+
+3. Open git-log.txt using emacs to find the commit entitled 
+"maint: quote 'like this' or "like this", not `like this`"
+: M-s w "maint: quote
+
+4. Found commit number: 62ca21c8c1a5aa3488589dcb191a4ef04ae9ed4f and 
+generated a patch for that, putting into file quote-patch.txt
+$  git format-patch -1 62ca21c8c1a5aa3488589dcb191a4ef04ae9ed4f --stdout 
+>quote-patch.txt
+
+5. Checked out version 3.0 of diffutils
+$ git checkout v3.0
+
+6. Used patch command to apply quote-patch.txt.
+$ patch -p1 <quote-patch.txt
+In case where I wasn't able to figure out what file to patch, I skipped past
+those returning.
+
+7. Used git status to get an overview: the output shows files that changes 
+not staged for commit and no changes added to commit
+$ git status
+
+8. Learn how to use vc-diff and vc-revert.  I checked other than .c files 
+to revert changes, files such as THANKS, TODO, or README, etc.
+I used emacs to open them with the following command to revert changes.
+: C-x v = C-x v u
+
+After this, checked modified .c files using vc-diff buffer and reverted
+changes.
+: C-x v = C-u C-c C-a
+
+Also used diff-goto-source (C-c C-c) to goto the source code and find hunks.
+
+9. Running git status again, I got the following message for modified files;
+#     modified: src/cmp.c
+#     modified: src/diff.c
+#     modified: src/diff3.c
+#     modified: src/dir.c
+#     modified: src/sdiff.c
+#     modified: src/util.c
+
+10. Used emacs to examine the files from src/*c.rej and copied rejected
+patches into the corresponding .c files.
+
+11. Removed all untracked files (that git status warns me) using below command
+$ git clean -f
+
+12. Used git diff into quote-3.0-patch.txt
+$ git diff >quote-3.0-patch.txt
+
+13. Building the resulting modified version of diffutils, used commands
+below after running both bootstrap and configure
+$ ./bootstrap
+$ ./configure
+$ make
+$ make check
+
+14. After this procedure, I verified diffutils using below commands
+$ diff . -
+For this command, I get a message as below
+diff: cannot compare '-' to a directory
+
+$ diff --help
+For this command, I get a message as below
+FILES are 'FILE1 FILE2' or 'DIR1 DIR2' or 'DIR FILE...' or 'FILE.. DIR'.
+If --from-file or --to-file is given, there are no restrictions on FILE(s).
+If a FILE is '-', read standard input.
+Exist status is 0 if inputs are the same, 1 if different, 2 if trouble.
+
+15. I did a sanity check and crerated a directory named diffutils-3.0-patch
+and copied all the files from diffutils-3.0
+$ mkdir diffutils-3.0-patch
+
+16. Used the original diffutils-3.0 repository and git cloned it into
+diffutils-3.0 directory
+$ git clone git://git.savannah.gnu.org/diffutils.git diffutils-3.0
+
+17. Ran the below command to run the implementation of diff
+$ diffutil-3.0-patch/diff -pru diffutils-3.0 diffutils-3.0-patch 
+>quote-3.0-test.txt 
+
+18. Lastly, I used diff to compare the contents of quote-3.0-text.txt and
+quote-3.0-patch.txt.
+$ diff quote-3.0-patch.txt quote-3.0-test.txt
+
+I see differences in ` and '.

@@ -1,0 +1,23 @@
+--- coreutils-with-bug/lib/timespec.h	2016-05-03 22:33:15.081326000 -0700
+2016-05-03  Jaehyung Park  <jaehyung@lnxsrv07.seas.ucla.edu>
+
+        * timespec.h (timespec_cmp): Bug fix for temespec_cmp. Change int var
+          type to long long int instead and change diff.
+
++++ /u/ee/ugrad/jaehyung/CS35L/week5/timespec.h	2016-05-03 22:50:42.106539000 -0700
+@@ -45,8 +45,13 @@
+ static inline int
+ timespec_cmp (struct timespec a, struct timespec b)
+ {
+-  int diff = a.tv_sec - b.tv_sec;
+-  return diff ? diff : a.tv_nsec - b.tv_nsec;
++  long long int diff = (long long int)a.tv_sec - (long long int)b.tv_sec;
++  if (diff>0)
++    return 1; // return positive
++  else if (diff==0)
++    return 0; // return zero
++  else
++    return -1; // return negative
+ }
+ 
+ # if ! HAVE_DECL_NANOSLEEP

@@ -1,0 +1,52 @@
+1. set up the PATH
+$ echo $PATH
+$ export PATH=/usr/local/cs/bin:$PATH
+
+2. check sort version
+$ sort --version
+sort (GNU coreutils) 8.25
+$ which sort
+/usr/local/cs/bin/sort
+
+3. Generate a file containing 10,000,000 random double precision floating
+   point numbers, in textual form, one per line with no white space.
+   Double-precision floating-point format is 8 bytes long, which I used
+   80,000,000 for the number and take it from /dev/urandom.
+$ od -An -t f -N 80000000 < /dev/urandom | tr -s ' ' '\n' > random.txt
+
+4. Run the following commands to check time/performance in different
+   threads.
+$ time -p sort -g random.txt > /dev/null
+Frankly, this command gave out no outputs but 0 for all real, user, and sys.
+I checked random.txt using emacs and found out there is empty line in the
+first line, which caused to give me false results.
+I deleted that first line and re-ran the command.
+
+real 38.68
+user 195.82
+sys 0.64
+
+// this time, I used 1, 2, 4, and 8 parallel threads
+$ time -p sort -g --parallel=1 random.txt > /dev/null
+real 187.24
+user 186.84
+sys 0.38
+
+$ time -p sort -g --parallel=2 random.txt > /dev/null
+real 97.20
+user 186.57
+sys 0.28
+
+$ time -p sort -g --parallel=4 random.txt > /dev/null
+real 56.88
+user 193.30
+sys 0.43
+
+$ time -p sort -g --parallel=8 random.txt > /dev/null
+real 36.64
+user 204.77
+sys 0.55
+
+The results are quite impressive that multithreads do enhance the overall
+execution time. It seems the command without the --parallel automatically
+optimizes to use all of the threads possible to perform its maximum output.

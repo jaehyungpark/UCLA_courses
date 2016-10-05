@@ -1,0 +1,18 @@
+Looking at gitk windows, there are four section.
+The gitk emacs windows shows professor Eggert's GNU emacs git repository's
+master branch on SEASnet.
+I selected a newest merge that was made in 2015-01-23.
+
+0. Upper left corner: This subwindow gives the tree of all the
+commit messages and branching of the repository.
+
+1. Upper right corner: The one in the middle shows the list of all
+contributer's (or committer) name and email address.
+
+The one in the right shows the date and time when the commit was made.
+
+2. Lower left corner: This subwindow shows parent, child of the commit, and 
+lists the changes made in the selected commit in a diff format.
+
+3. Lower right corner: This subwindow shows files that's been changed.
+

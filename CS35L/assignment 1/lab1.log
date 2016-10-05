@@ -1,0 +1,13 @@
+1. Read through the man pages to find this option.
+2. Utilized whereis to find where the programs where located
+3. Used find together with the wildcard ? to find files of one char long
+4. Used symbolic link to discover it. (ls -l) 
+5. The man pages of chmod specified what those commands do. 
+6. I first tried find -mtime 3, but it wouldn't find any files because they had to be modified in exactly 3 days. Then I used find -mtime -3. 
+9. Used find together with a formatting style that included the timestamp and the filename, piped that into sort and piped that into head. 
+10. Found the answer by reading through the man pages. 
+11. Looked at the Emacs documentation to look for this. 
+12. While on the Emacs Shell, I pressed all the keystrokes and wrote down what they did. 
+13. I played around with C-g to see different use cases. I tried using it in the middle of a command, in a line, etc. 
+14. Found this in combination with kill. 
+15. Opened two different terminal windows and performed a visual comparison. Later I created a .diff file that highlighted the differences between those two.

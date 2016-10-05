@@ -1,0 +1,14 @@
+// Problem 2.72
+
+A. Since the sizeof operator returns a value of type size_t, which is
+   an unsigned integer, the arithmetic inside the if statement follows
+   the unsigned rule.
+   In other words, when maxbytes - sizeof(val) is bigger or equal than 0,
+   the arithmetic works fine. On the other hand, when the value is smaller
+   than 0, because of the unsigned integer, the difference is always
+   positive (>=0), resulting the if statement to be always true.
+   
+B. To rewrite the conditional test to make it work properly, we can 
+   change as below: (just to make sure maxbytes is bigger or equal than 0)
+
+   if (maxbytes >= 0 && maxbytes >= sizeof(val))

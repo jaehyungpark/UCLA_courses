@@ -1,0 +1,68 @@
+1. Maintain a file hw4.txt
+$ touch hw4.txt
+
+2. Check out version 3.0 of diffutils from repository into a new branch
+named "quote"
+$ git checkout v3.0 -b quote
+
+3. Install the change into new branch by running patch command
+$ patch -p1 <quote-3.0-patch.txt
+
+4. Read and learn of add-change-log-entry-other-window emacs function C-x 4 a
+
+5. Use emacs function to compose an appropriate ChangeLog entry for patch
+Opened each .c file and used C-x 4 and checked ChangLog
+$ emacs ChangeLog
+: C-x 4 a
+
+6. Commit changes to new branch
+$ git add .
+$ git commit -m "ChangeLog"
+
+7. Used the "git format-patch" to generate a file formatted-patch.txt
+$ git format-patch -1 --stdout >formatted-patch.txt
+
+8. My partner is David Chambers and got his patch file, I applied it
+to the new branch using the following command
+$ git am <formatted-patch.txt
+
+$ ./bootstrap
+$ ./configure
+$ make
+$ make check
+
+9. Verify the ChangeLog entry
+$ make distdir
+
+I inspected the ChangeLog file using the command and got bunch of messages.
+Got a meesage saying *** No rule to make target `ChangeLog-2008', needed by
+`distdir'. Stop.
+Used emacs to open ChangeLog and showed logs of 6 .c files that were modified
+before. My partner sent me two files and I used the earlier one to do the
+process. While I was done applying the patch, he sent me another one and 
+tried to reapply it, but somehow I think it got all mixed up.
+At this point, I'm really not sure if the patch worked or not.
+
+10. Lastly, install XQuartz and Xming and enter
+~eggert/src/gnu/emacs directory and used gitk command to take the screenshot.
+$ ssh -X jaehyung@lnxsrv07.seas.ucla.edu
+$ cd ~eggert/src/gnu/emacs
+$ gitk
+
+When I typed in gitk, I got an error message saying "-bash: gitk: command not 
+found". While going over some piazza posts, I found another way.
+
+$ ssh -X jaehyung@lnxsrv07.seas.ucla.edu
+$ git clone git://git.savannah.gnu.org/emacs.git
+$ cd emacs
+$ gitk
+
+Still, I got the same error msg. Now I figured out how.
+Use lnxsrv.seas.ucla.edu instead lnxsrv07.seas.ucla.edu.
+Set the port to 22 and enable X11 forwarding in PuTYY.
+After logining in, set the PATH and then type in to the directory.
+$ ssh jaehyung@lnxsrv.seas.ucla.edu #loging first
+$ export PATH=/usr/local/cs/bin:$PATH
+$ ssh -X jaehyung@lnxsrv.seas.ucla.edu
+$ cd ~eggert/src/gnu/emacs
+$ gitk

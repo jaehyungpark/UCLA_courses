@@ -1,0 +1,69 @@
+using both lnxsrv and lnxsrv07 to make sure
+=====================================================
+1. man -k [specific keyword]
+2. use [whereis cp] and [whereis wc]
+   cp: /usr/bin/cp
+   wc: /usr/bin/wc
+3. use [find /usr/bin -name "?"]
+   X: X or X.org(Xorg) is a portable, network-transparent window system
+   w: show who is logged on and what they are doing
+   [: has no man entry, using man [ shows a list of bash/shell builtin
+   commands, but lacks [
+4. use [readlink /usr/bin/emacs]
+   /usr/bin/etc/alternatives/emacs
+5. use [man chmod] 
+   g+s: the permissions granted to other users who are members of the file's
+   group, and set user or group ID on execution
+   o-x: removes the execution permission for others
+6. use [-mtime n]
+   this command finds file's data that was last modified
+   n*24 hours ago, in this case, n=3
+7. use [find -mtime 3]
+   ./Desktop
+   ./Desktop/desktop.ini
+   ./Downloads/desktop.ini
+   ./Documents/desktop.ini
+   ./.emacs.d
+   ./.lesshst
+   ./.emacs
+8. use [find /usr/bin -type l -ls | wc -l]
+   using lnxsrv07, I get 241
+9. use [find /usr/lib -type f -printf '%T+ %p\n' | sort | head -n 1] 
+   to find the oldest regular file in /usr/bin
+   using lnxsrv07.seasnet.ucla.edu, I got below
+   usr/lib/python2.7/site-packages/pyasn1/codec/ber/eoo.py
+   using lnxsrv.seasnet.ucla.edu, I got below
+   usr/lib/x86_64-redhat-linux5E/include/bits/stdio-lock.h
+10. use [man locale]
+    each local category defined by the LC_* environment variables
+11. use [C-h a sort]
+    Buffer-menu-sort
+    sort-columns
+    sort-fields
+    sort-lines
+    sort-numeric-fields
+    sort-pages
+    sort-paragraphs
+    sort-regexp-fields
+    tabulated-list-col-sort
+    tabulated-list-sort
+12. use [C-h b and C-x o to switch window]
+    use [C-s C-M-] to find the answer
+    C-M-a: beginning-of-defun
+    C-M-b: backward-sexp
+    C-M-c: exit-recursive-edit
+    C-M-d: down-list
+    C-M-e: end-of-defun
+    C-M-f: forward-sexp
+    C-M-g: not listed (N/A)
+    C-M-h: mark defun
+13. use [C-h k C-g]
+    C-g: this command cancels running or partially typed command
+14. use [C-h f yank]
+    Yank command inserts/pastes whatever that has been copied
+    In a copy-paste relation, in linux, it is copy-yank
+15. use [C-h f dired] for emacs
+    use [cd /usr/bin/ls -l]
+    Since emacs dired command can list some subdirectories
+    than [ls -l], dired command finds more files than using
+    [ls -l].

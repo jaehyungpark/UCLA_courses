@@ -1,0 +1,120 @@
+1. Wrote a C transliteration program tr2b.c using getchar and putchar with
+   operands 'from' and 'to'. Set condition to check if both operands have the
+   same length or not.
+
+2. Wrote a C transliteration program tr2u.c using read and write with 
+   operands from and to. Unlike 1, this program doesn't use buffers.
+   The code is about the same from 1 except for getchar and putchar.
+
+3. Generate a file that contains at least 5,000,000 bytes. Googled how to
+   generate a file and found to use dd command to do this: code as below
+   $ dd if=/dev/urandom of=file1.txt count=1 bs=5000000
+
+   Accidently made a file using count=1024 and bs=5000000, got an error by
+   exceeding 1.2GB of disk quota: changed count to 1
+
+   Opened file1 with emacs and there were a bunch of random numbers
+
+4. Use strace command to compare the system calls issued by tr2u and tr2b
+   (a) When copying one file to another
+
+   $ strace -c ./tr2b 'a' 'z' < file1.txt > output1.txt
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 26.97    0.000048           5         9           mmap
+ 18.54    0.000033           0        79           read
+ 14.61    0.000026           7         4           mprotect
+ 10.11    0.000018           5         4           fstat
+  7.30    0.000013           7         2           open
+  5.62    0.000010          10         1           munmap
+  4.49    0.000008           4         2           close
+  3.93    0.000007           7         1         1 access
+  3.93    0.000007           7         1           execve
+  2.25    0.000004           4         1           brk
+  2.25    0.000004           4         1           arch_prctl
+  0.00    0.000000           0        77           write
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000178                   182         1 total
+
+   $ strace -c ./tr2u 'a' 'z' < file1.txt > output2.txt
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 56.14    5.609908           1   5000000           write
+ 43.86    4.383333           1   5000002           read
+  0.00    0.000041           6         7           mmap
+  0.00    0.000026           7         4           mprotect
+  0.00    0.000012           6         2           open
+  0.00    0.000010          10         1           munmap
+  0.00    0.000008           4         2           fstat
+  0.00    0.000006           3         2           close
+  0.00    0.000006           6         1         1 access
+  0.00    0.000006           6         1           execve
+  0.00    0.000003           3         1           brk
+  0.00    0.000003           3         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00    9.993362              10000024         1 total
+
+   (b) When copying a file to your terminal
+
+   $ strace -c ./tr2b 'a' 'z' < file1.txt
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 86.18    0.001297           0      4883           write
+  4.25    0.000064           1        79           read
+  3.26    0.000049           5         9           mmap
+  1.73    0.000026           7         4           mprotect
+  1.13    0.000017           4         4           fstat
+  0.93    0.000014           7         2           open
+  0.66    0.000010          10         1           munmap
+  0.47    0.000007           4         2           close
+  0.47    0.000007           7         1         1 access
+  0.47    0.000007           7         1           execve
+  0.27    0.000004           4         1           brk
+  0.20    0.000003           3         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.001505                  4988         1 total
+
+   $ strace -c ./tr2u 'a' 'z' < file1.txt
+
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 59.84    6.940480           1   5000000           write
+ 40.16    4.658440           1   5000002           read
+  0.00    0.000040           6         7           mmap
+  0.00    0.000027           7         4           mprotect
+  0.00    0.000014           7         2           open
+  0.00    0.000010          10         1           munmap
+  0.00    0.000008           8         1         1 access
+  0.00    0.000008           8         1           execve
+  0.00    0.000007           4         2           close
+  0.00    0.000007           4         2           fstat
+  0.00    0.000004           4         1           brk
+  0.00    0.000003           3         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00   11.599048              10000024         1 total
+
+The results are straight forward that for both (a) and (b) cases, tr2b
+makes about 182 and 4988 syscalls, but tr2u makes more than 10000000 syscalls.
+Looking at the chart, tr2b evaluates every byte, which makes a big difference 
+in response time.
+(tr2b took less than a second while tr2u took more than five minutes)
+
+5. Use time command to measure which is faster
+   $ time ./tr2b 'a' 'z' < file1.txt
+
+real    0m0.386s
+user    0m0.135s
+sys     0m0.023s
+
+   $ time ./tr2u 'a' 'z' < file1.txt
+
+real    0m1.595s
+user    0m0.133s
+sys     0m0.031s
+
+The results also show that tr2b takes much more than tr2u. From the chart
+above, since tr2b uses syscall for every single byte, it takes more time
+than tr2u that uses buffered I/O to reduce use of syscall.

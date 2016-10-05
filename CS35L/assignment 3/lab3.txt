@@ -1,0 +1,51 @@
+0. use wget to download the coreutils-7.6 file
+   wget ftp:://ftp.gnu.org/gnu/coreutils-7.6.tar.gz
+
+1. unzip the file using tar
+   tar -xzvf coreutils-7.6.tar.gz
+
+2. create a directory named coreutilsInstall
+   mkdir coreutilsInstall
+
+3. use cd to go to coreutils directory and read INSTALL file
+   cd ~/CS35L/week3/coreutils-7.6
+   # read README
+   emacs README
+   # run and install coreutils in coreutilsInstall directory
+   ./configure --prefix="/u/ee/ugrad/jaehyung/CS35L/week3/coreutilsInstall"
+   # run make
+   make
+   # run make install
+   make install
+
+4. This step, I tried to display the buggy version of dates using SEASnet
+   # used below command
+   cd src
+   ./ls -l
+   # by doing this, it shows the wrong date format
+   for example, 2009-09-01 like this format
+   # the correct version will be using ls -l
+
+5. I used Brady's patch to make changes
+   # created a file named patch_file and used Brady's patch to this file
+   touch patch_file
+
+   # when using Brady's patch, the patch file starts from 
+   # --- a/src/ls.c
+   # +++ b/src/ls.c
+   # and ends at /* comment */
+   # this is just a log to make sure I don't forget using it later
+
+6. After copying, I ran the command
+   patch -p1 <patch_file
+
+   # one thing, in the TA's lecture notes, he mentioned using -p2 not -p1
+   # when I tried using -p2 to apply the patch, I get an error message
+   # saying wrong -p or --strip option. (just saying)
+
+7. run command make
+
+8. After applying patch, I ran below command to see the correct version
+   ./ls -l
+   # now it gives me the correct date format
+   # for instance, I get Sep 1  2009

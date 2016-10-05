@@ -1,0 +1,25 @@
+From 022cd5c5eb647a22a4daa5fe5cbc10af6d5a1112 Mon Sep 17 00:00:00 2001
+From: Jim Meyering <meyering@redhat.com>
+Date: Mon, 3 May 2010 18:49:55 +0200
+Subject: [PATCH] version 3.0
+
+* NEWS: Record release date.
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 88af7ef..5fe01b7 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,6 +1,6 @@
+ GNU diffutils NEWS                                    -*- outline -*-
+ 
+-* Noteworthy changes in release ?.? (????-??-??) [?]
++* Noteworthy changes in release 3.0 (2010-05-03) [stable]
+ 
+ ** Bug fixes
+ 
+-- 
+1.8.3.1
+

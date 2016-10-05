@@ -1,0 +1,170 @@
+#####################just a reminder################################
+# both sameln and buildwords scripts use ideas and example codes
+# from TA's lecture notes, if needed, go back to TA notes and review
+# the material
+####################################################################
+
+export LC_ALL='C'
+: Use this command to set POSIX locale to C
+
+locale
+: Use this command to check C locale
+
+sort /usr/share/dict/words > words
+: Create new file as 'words' that is sorted 
+
+wget http://web.cs.ucla.edu/classes/spring16/cs35L/assign/assign2.html
+: get html file of the assignment2 website
+
+Below are commands that I used for assign2.html
+1. cat assign2.html | tr -c 'A-Za-z' '[\n*]'
+: This command clears out words that don't contain characters from
+  A to Z and a to z and replace non-alphabet characters to new lines.
+
+2. cat assign2.html | tr -cs 'A-Za-z' '[\n*]
+: Comparing the output, there are no empty lines between words
+  only one words are displayed per line.
+
+3. cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | sort
+: Words in the html file are displayed in alphabetical order, all sorted
+  and each word is separated in new line.
+
+4. cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | sort -u
+: The words are also displayed in alphabetical order, but only showed
+  in once, which clears out duplicates
+
+5. cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | sort -u | comm - words
+: This prints out in three columns, the first column are words in the
+  assign2.html file, second column are words in wordlists from words, and
+  third column are the same words from both files
+
+6. cat assign2.html | tr -cs 'A-Za-z' '[\n*]' | sort -u | comm -23 -words
+: This compares two files and prints out words that are only in assign2.html
+
+wget mauimapp.com/moolelo/hwnwdseng.htm
+: use wget to download the htm file of dictionary for buildworlds.sh
+
+
+* Below is for buildwords.sh (lab)
+===========================================================
+The way how I approached this problem is to write each line of command
+and run the script with hwnwdseng.htm and created a file to test the outputs
+Since each commands are pipelined to the next, it was important to end the
+pipeline at the very last command (got stuck at this issue for an hour)
+
+Used command  ./buildwords.sh < hwnwdseng.htm > test* and created
+multiple test* files to compare the outputs
+===========================================================
+#!/bin/sh
+
+# extract lines with <td></td> to find words
+grep "<td>.*</td>" |
+
+# replace Hawaiian ` letter to ASCII '
+tr '`' "'" |
+
+# replace upper case chars to all lower case chars
+tr '[:upper:]' '[:lower:]' }
+
+# remove HTML tags
+sed 's/<[^>]*>//g' |
+
+# remove backslashes (\)
+sed 's/\///g' |
+
+# remove <td>, by this, it only leaves words
+sed 's/<td>//g' |
+
+# remove <u>, same as <td>, only leaves words
+sed 's/<u>//g' |
+
+# remove empty new lines
+# by this, we can only focus on the even number of lines for 
+# Hawaiian words
+sed '/^\s*$/d' |
+
+# remove odd number of lines
+# by this, we can remove English words and only leave Hawaiian words
+sed -n 'g;n;p' |
+
+# remove the first 4 spaces
+sed 's/^\s*//g' |
+
+# since the assignment spec says we need to treat words with commas or
+# spaces as multiple words, we will first remove commads and replace
+# all spaces into new lines
+
+# remove commas
+sed 's/,//g' |
+
+# replace space into new line
+sed 's/ /\n/g' |
+
+# remove empty new line
+# there was an extra empty line, so I removed it
+sed '/^\s*$/d' |
+
+# reject words that don't contain hawaiian characters
+sed "/[^p^k^'^m^n^w^l^h^a^e^i^o^u]/d" |
+
+# sort words and only display them once (remove duplicates)
+sort -u
+
+==============================================================
+
+after testing up to test15, used command to run
+./buildwords.sh < hwnwdseng.htm > hwords
+and confirmed hwords contains all the Hawaiian words.
+
+checked the script on the website and also worked.
+
+* number of "mispelled" Hawaiian
+used command:
+cat assign2.html | tr -cs 'A-Za-z' | tr '[:upper:]' '[:lower:]' |
+sort -u | comm -23 - words | wc -l
+I get 413 misspelled Hawaiian words
+
+* number of "mispelled" English
+used command:
+cat assign2.html | tr -cs 'A-Za-z' | tr '[:upper:]' '[:lower:]' |
+sort -u | comm -23 - hwords | comm -23 - words | wc -l
+I get 406 misspelled English words
+
+* any words that are "mispelled" as English, but not as Hawaiian
+: I get e, halau, i, kula, lau, make, wiki
+
+* any words that are "mispelled" as Hawaiian, but not as Enligsh
+: I get 0 entries
+
+=================================================================
+sameln.sh log
+
+First, I made two assumptions, one with files that have dots and
+two with files that doesn't have dots. I sorted them and saved them
+in an array, since lexicographically, each files should be sorted in
+the correct alphabetical order.
+
+Then, I compared each file and looped them to check if the second
+file is a duplicate or not. Then, I removed the second file and used ln 
+command to make a hardlink of the [origianl] duplicates.
+
+I used a newcount=0 as an initial pointer and used while with parameter
+to traverse through the array.
+
+The syntax seemed correct to me. Everytime I run the script, it 
+properly produces the output rather telling the file is a regular
+file or not and also reads . * - SP files, but while it runs cmp command,
+I get "No such file or directory" for the test files that I made in the 
+same directory.
+
+UPDATE: Tried to fix this issue, I changed the syntax using 
+for FILE1 in "${ARRAY[@]}" method that was given in the TA's notes, 
+but still getting the same error message.
+I realized missing the due date more than 3 days will make me lose more
+points with the issue unsolved, so submitting this version of the script.
+Hopefully, if there is a sample solution script to this problem will be
+really awesome.
+
+UPDATE2: After I submitted the files, I made a small change in cmp.
+I added -s after cmp, and I think it works now with the test files that I
+made. Resubmitting with new files.

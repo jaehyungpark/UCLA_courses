@@ -1,0 +1,36 @@
+1.Suppose the other teams really had been observing all the bytes going across
+ the network. Is your resulting network still secure? If so, explain why, and 
+explain whether your answer would change. 
+: Sending data through SSH is encrypted, which all the bytes are safe from
+any hacker attacks or sniping in between since they require the receiver's 
+private key to decipher/decrypt the data/message.
+
+(1) you assumed the other teams had also tapped your keyboards and had 
+observed all of your team's keystrokes
+: If the teams had access to tap our keyboard, then the data will no longer
+be secure if the tapping has been made during the authentication stage.
+It is possible the other team could have access to the user name, password,
+and passphrase. This could lead them to get the private key to decrypt the
+data.
+
+(2) you are booting off USB and you assume the other teams temporarily had 
+physical control of the USB. If not, explain any weaknesses of your team's 
+setups, focusing on possible attacks by such outside observers.
+: Having access to the bootable USB drive will give the other teams to see 
+all .ssh folders and the private key. By this, the other team will be able to 
+set up the authentication process and decrypte the messages. 
+The weakness is to use a bootable USB but not a physical drive and leaving 
+it somewhere that anyone can take it from and use it.
+
+2,Explain why the gpg --verify command in the following instructions doesn't 
+really verify that you personally created the tar file in question. How would 
+you go about fixing this problem?
+: gpg --verify command only verifies the document but not the originality.
+This command only uses the public key to decrypt the data and compare the 
+signature. This will just show the sender of the file, but not the author of 
+the data/file.
+
+To fix this problem is to use widely trusted third party certificate companies 
+such as digicert or verisign to keep track of the public key and the author to
+the key to whom to assign. (Different user) These companies can verify the 
+identity of the sender based on the issued certificate.

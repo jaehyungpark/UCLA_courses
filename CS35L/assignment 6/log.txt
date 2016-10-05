@@ -1,0 +1,61 @@
+For this lab, I partnered with someone sitting next to me.
+Unfortunately, I didn't get his name, but just his IP addreess.
+I'll just name him as johndoe and his id.
+
+Using Ubuntu CD setup, reboot the computer, go to BIOS and boot up from CD/DVD.
+
+1. Install openssh server (setting up the server side first)
+$dpkg --get-selections | grep openssh
+$sudo apt-get install openssh-server
+
+2. The following is the server side setup (I first performed as a server)
+Generated public and private key:
+$ssh-keygen
+Used the default directory, created in '/home/ubuntu/ssh'
+Used Passphrase: assignment6 (this is just a test)
+
+Created an account for the lab partner to access the server:
+$sudo useradd -d /home/hw6/ - m johndoe
+$sudo passwd johndoe
+
+Enter new UNIX password: homework6 (also, this is just a test)
+
+Then created ssh directory:
+$cd /home/johndoe
+$sudo mkdir .ssh
+
+Changed the ownership and permission of ssh directory:
+$sudo chown -R johndoe .ssh
+$sudo chmod 700 .ssh
+
+Then used emacs to disable password-based authentication:
+$emacs /etc/ssh/sshd_config
+In line 32, change the PasswordAuthentication from yes to no
+(emacs) C-x C-s
+
+3. The following is the client side setup
+Install openssh client first:
+$sudo apt-get install openssh-client
+
+Generate public and private key:
+$ssh-keygen
+
+Copy my public key to the server for authentication:
+$ssh-copy-id -i jaepark@10.97.85.189
+
+Add private key to the authentication agent:
+$ssh-add
+
+Use the following command to connect SSH to my partner's server
+$ssh jaepark@10.97.85.189
+or use X11 session forwarding
+$ssh -X jaepark@10.97.85.189
+
+After this step, I(client) was able to access to the server side directory.
+Made some tests to make sure it worked.
+$firefox
+$gedit
+$touch test.txt
+
+All of this worked fine and I was able to see the file using X11 session
+forwarding.
