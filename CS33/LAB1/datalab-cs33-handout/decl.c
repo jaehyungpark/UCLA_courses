@@ -9,6 +9,11 @@
 #include "bits.h"
 
 test_rec test_set[] = {
+
+
+
+
+
  {"bang", (funct_t) bang, (funct_t) test_bang, 1,
     "~ & ^ | + << >>", 12, 4,
   {{TMin, TMax},{TMin,TMax},{TMin,TMax}}},

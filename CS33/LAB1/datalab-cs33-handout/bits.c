@@ -1,7 +1,7 @@
 /* 
  * CS:APP Data Lab 
  * 
- * <Jaehyung Park: 504212821>
+ * <Jaehyung Park 504212821>
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
@@ -139,9 +139,10 @@ NOTES:
  *   Rating: 4 
  */
 int bang(int x) {
-  int signX = (x >> 31);
-  int flipSignX = (((~X) + 1) >> 31);
-  return ((~(signX | flipSignX)) & 1);
+  // negate x without using bang (~)
+  int negX = ~x + 1;
+  int getBit = (~x & ~negX);
+  return (getBit >> 31) & 1;
 }
 /*
  * bitCount - returns count of number of 1's in word
@@ -151,7 +152,21 @@ int bang(int x) {
  *   Rating: 4
  */
 int bitCount(int x) {
-  return 2;
+  // The easiest way is to add all the counts 
+  int count = 0;
+  // divided into 4 sections by 8 bits and iterate from 0 to 7 shifts
+  int mask = 1 | (1 << 8) | (1 << 16) | (1 << 24);
+  // do a bit count for all 0 to 7 iterations
+  count = count + (x & mask);
+  count = count + ((x >> 1) & mask);
+  count = count + ((x >> 2) & mask);
+  count = count + ((x >> 3) & mask);
+  count = count + ((x >> 4) & mask);
+  count = count + ((x >> 5) & mask);
+  count = count + ((x >> 6) & mask);
+  count = count + ((x >> 7) & mask);
+  return (count & 0xFF) + ((count >> 8) & 0xFF) + 
+      ((count >> 16) & 0xFF) + ((count >> 24) & 0xFF);
 }
 /* 
  * bitOr - x|y using only ~ and & 
@@ -178,7 +193,19 @@ int bitOr(int x, int y) {
  *   Rating: 4
  */
 int bitRepeat(int x, int n) {
-  return 2;
+  int mask = (0xFFFF << (32 - n)) >> (32 - n);
+  int parseBits = x & mask;
+  int remain = 32 % n;
+  int iter = (32-remain) / n;
+  int remainBits = 0xFFFF | (x << (iter*n));
+  int result = (0xFFFF & parseBits) | ((0xFFFF << n) & parseBits) |
+      ((0xFFFF << 2*n) & parseBits) | ((0xFFFF << 3*n) & parseBits) |
+      ((0xFFFF << 4*n) & parseBits) | ((0xFFFF << 5*n) & parseBits) | 
+      ((0xFFFF << 6*n) & parseBits) | ((0xFFFF << 7*n) & parseBits) | 
+      remainBits;
+  // I couldn't figure it out how to automatically determine
+  // the iteration of adding bits repeatedly.
+  return result;
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
@@ -190,7 +217,8 @@ int bitRepeat(int x, int n) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+  int mask = x >> 31;  
+  return !(((~x & mask) + (x & ~mask)) >> (n + ~0));
 }
 /* 
  * getByte - Extract byte n from word x
@@ -201,7 +229,9 @@ int fitsBits(int x, int n) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  return 2;
+  int getBit = (x >> (n << 3));
+  int mask = 0xFF;
+  return getBit & mask;
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -211,7 +241,16 @@ int getByte(int x, int n) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  int negX = ~x + 1;
+  int add = negX + y;
+  int sign = add >> 31 & 1;
+  int mask = 1 << 31;
+  int xMSB = mask & x;
+  int yMSB = mask & y;
+  int xored = xMSB ^ yMSB; // do a XOR operation
+  // with pros, AND with 1 to see if x and y are equal or not
+  xored = (xored >> 31) & 1;
+  return (xored & (xMSB >> 31))|(!sign & !xored);
 }
 /* 
  * isPositive - return 1 if x > 0, return 0 otherwise 
@@ -221,7 +260,10 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  return 2;
+  // mask the MSB, pos = 1, neg = 0
+  int mask = ((1 << 31) & x);
+  int checkMSB = !x;
+  return !mask ^ checkMSB;
 }
 /* 
  * logicalShift - shift x to the right by n, using a logical shift
@@ -232,12 +274,12 @@ int isPositive(int x) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  int temp = 1;
-  temp = temp << 31;
-  temp = temp >> n;
-  temp = temp >> 1;
-  x = x >> n;
-  return (x & ~temp);
+  // set masking for logical shift on specific nth bit
+  int mask = (1 << 31) >> n;
+  // by doing an AND operation, shift x by n AND ~mask
+  // ~mask will give all 1s but 0 for the shift point
+  int result = (x >> n) & ~(mask << 1);
+  return result;
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -246,5 +288,5 @@ int logicalShift(int x, int n) {
  *   Rating: 1
  */
 int tmin(void) {
-  return 2;
+  return 1 << 31;
 }

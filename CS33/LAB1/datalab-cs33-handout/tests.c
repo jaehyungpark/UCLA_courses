@@ -51,11 +51,16 @@ int test_bitRepeat(int x, int n) {
     return result;
   }
 }
+
+
+
+
 int test_fitsBits(int x, int n)
 {
   int TMin_n = -(1 << (n-1));
   int TMax_n = (1 << (n-1)) - 1;
   return x >= TMin_n && x <= TMax_n;
+
 }
 int test_getByte(int x, int n)
 {
