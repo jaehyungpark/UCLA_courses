@@ -1,0 +1,61 @@
+Jaehyung Park
+504212821
+
+CS 33 Dis 1A
+pexexlab.txt
+
+--------------------------
+To perform trace, I followed and used the commands listed below.
+The first command to run the gdb debugger as listed on the website.
+
+$ gdb ~eggert/bin64/bin/emacs-24.5
+
+I was running lnxsrv09 at the moment. Make sure to check gcc version (6.2.0 at the latest).
+This command runs the gdb in the latest emacs directory to enter the debugger and run Elisp via emacs.
+From this line, we'll be running via gdb debugger.
+
+(gdb) break Ftimes
+
+This command sets up a breakpoint at function Ftimes to set up a starting point to trace from this point.
+The reason of using break Ftimes is to trace the asm code for Ftimes to see what machine instructions are made.
+It set a breakpoint 1 at 0x542140: file data.c in line 2767.
+
+(gdb) r -batch -eval '(print (* 6997 -4398042316799 179))'
+
+This commands bascially runs the program with given arguments.
+
+(gdb) set disassemble-next-line on
+
+This line is to set the debugger to print each instruction as it's being executed after the
+program hits the breakpoint.
+
+(gdb) si
+
+This command is used to see every instruction of function Ftimes being called.
+
+(gdb) disas
+
+This command outputs the disassembled machine code that shows which of the debugging process we
+are currently at pointed by an arrow.
+
+(gdb) info registers
+
+This command provided all of the machine code after executing each machine code instruction.
+It was very useful to use this command because it will output registers such as mov, add, lea, xor, and
+and other commands with corresponding hexadecimal values.
+
+(gdb) info registers %(registername)
+
+This command was used to look machine code instructions for specific registers.
+
+The sequence I've used to get the trace is as below:
+First, check gdb version if it's 6.2.0 (I had issues with this when uding testovf)
+run gdb ~eggert/bin64/bin/emacs-24.5
+(gdb) break Ftimes
+(gdb) -r -batch -eval '(print (* 6997 -4398042316799 179))'
+(gdb) set disassemble-next-line on
+and used si, disas, info registers repetitively to get to the end of arith_driver function.
+I didn't really use info registers %(registername).
+
+For testovf lab, I wrote down the gcc command I used for the lab.
+Again, must check proper gcc version (I spent more than an hour solving this issue)

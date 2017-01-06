@@ -5,18 +5,18 @@ Materials will include notes, pdfs, class/project codes, and homeworks.
 # List of Materials
 * Computer Science
  * CS 33
-  * CS 35L
-   * CS 180
-    * CS M117
+ * CS 35L
+ * CS 180
+ * CS M117
 * Electrical Engineering
  * EE M16
-  * EE 102
-   * EE 113
-    * EE 131A
-     * EE 10/11L
-      * EE 110/111L
-       * EE 115A
-        * EE 115C
-         * EE 133A
+ * EE 102
+ * EE 113
+ * EE 131A
+ * EE 10/11L
+ * EE 110/111L
+ * EE 115A
+ * EE 115C
+ * EE 133A
 
 Updated: October, 2016

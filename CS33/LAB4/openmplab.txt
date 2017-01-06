@@ -1,0 +1,193 @@
+CS 33 lab 4 openmp lab
+
+0. First, download the openmplab.tgz file from the website and unzip it
+Can use scp, but I used Filezila instead
+$ tar -zxvf openmplab.tgz
+$ cd openmplab
+
+Just to make sure, the TA posted on piazza that the program will be graded
+on lnxsrv07, so all of the commands and results below are derived using 07.
+Originally did this on lnxsrv09 and tried to work on it on lnxsrv07 gave
+me slower results. I had to make some changes to the code.
+
+Before I begin, I did the lab using default threads and simply adding $pragma
+on each for loop to optimize the performance, which worked well on lnxsrv09,
+but got slower results on lnxsrv07. I had to make changes, so I added
+num_threads(28) with firstprivate and private clauses to declare the instances
+of each values and initialize it, and did some tweaks using hoisting and more.
+
+1. Run commands to execute how fast the original func.c runs
+$ make seq
+$ ./seq
+FUNC TIME : 0.493601
+TOTAL TIME : 2.770532
+
+Also use the GPROF=1 flag
+$ make seq GPROF=1
+$ ./seq
+FUNC TIME : 0.569035
+TOTAL TIME : 2.814611
+
+$ gprof seq | less
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 58.41      0.35     0.35       15    23.36    26.06  func1
+ 26.70      0.51     0.16  5177344     0.00     0.00  rand2
+  5.01      0.54     0.03                             sequence
+  1.67      0.55     0.01   983042     0.00     0.00  round
+  1.67      0.56     0.01   491520     0.00     0.00  findIndexBin
+  1.67      0.57     0.01       16     0.63     0.63  dilateMatrix
+  1.67      0.58     0.01       15     0.67     0.67  func2
+  1.67      0.59     0.01       15     0.67     1.34  func5
+  1.67      0.60     0.01                             filter
+  0.00      0.60     0.00       15     0.00     0.00  func3
+  0.00      0.60     0.00       15     0.00     0.00  func4
+  0.00      0.60     0.00       15     0.00     0.00  rand1
+  0.00      0.60     0.00        2     0.00     0.00  get_time
+  0.00      0.60     0.00        1     0.00   129.80  addSeed
+  0.00      0.60     0.00        1     0.00     0.00  elapsed_time
+  0.00      0.60     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.60     0.00        1     0.00     0.00  func0
+  0.00      0.60     0.00        1     0.00     0.00  getNeighbors
+  0.00      0.60     0.00        1     0.00    10.01  imdilateDisk
+
+From the results above, we can see that func1 takes the most time out
+of the remaining functions. We can also observe that func2 and func5
+takes some time to run the function while func3, func4, func1, and func0
+takes 0.00 time to run them.
+
+Another thing to add, using $ less /proc/cpuinfo, we can notice that
+seasnet server cpu has 32 threads, which we can take account for.
+Add code snippets such as below:
+#pragma omp parallel for num_threads(28)
+The reason why I chose 28 is to not bottleneck all threads while some of its
+resources can be used to work on other things.
+
+Also, save the original func.c file just in case things go wrong. 
+$ cp func.c func_backup.c
+
+2. After revising the code, run the code using omp instead of seq
+$ make omp
+$ ./omp
+FUNC TIME : 0.036227
+TOTAL TIME : 2.222996
+
+Comparing the FUNC TIME for (a) from make seq, the performance is
+roughly about 0.493691/0.036227 = 13.63 times faster.
+// this value can fluctuate depending on the load of the server
+// running it multiple times, sometimes I get a bit faster and slower
+// speeds, but averages around 0.035 to 0.036 range.
+
+Then, same as for part 1, use GPROF=1 flag.
+$ make omp GPROF=1
+$ ./omp
+FUNC TIME : 0.136294
+TOTAL TIME : 2.563966
+
+$ gprof omp | less
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 56.73      0.34     0.34                             filter
+ 21.69      0.47     0.13  4228938     0.00     0.00  rand2
+ 10.01      0.53     0.06    12292     0.00     0.00  findIndexBin
+  6.67      0.57     0.04        1    40.04   169.12  addSeed
+  3.34      0.59     0.02                             sequence
+  1.67      0.60     0.01        1    10.01    10.01  imdilateDisk
+  0.00      0.60     0.00    52802     0.00     0.00  round
+  0.00      0.60     0.00       16     0.00     0.00  dilateMatrix
+  0.00      0.60     0.00       15     0.00     0.00  func1
+  0.00      0.60     0.00       15     0.00     0.00  func2
+  0.00      0.60     0.00       15     0.00     0.00  func3
+  0.00      0.60     0.00       15     0.00     0.00  func4
+  0.00      0.60     0.00       15     0.00     0.00  func5
+  0.00      0.60     0.00       15     0.00     0.00  rand1
+  0.00      0.60     0.00        2     0.00     0.00  get_time
+  0.00      0.60     0.00        1     0.00     0.00  elapsed_time
+  0.00      0.60     0.00        1     0.00     0.00  fillMatrix
+  0.00      0.60     0.00        1     0.00     0.00  func0
+  0.00      0.60     0.00        1     0.00     0.00  getNeighbors
+
+By observing the results above, all functions from func0 to func5 have shown
+great improvement in time to decrease down to 0.00.
+
+3. We need to check for correctness.
+Run the commands below
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make check
+gcc -o omp  -O3 -fopenmp filter.c main.c func.c util.c -lm
+cp omp filter
+./filter
+FUNC TIME : 0.034996
+TOTAL TIME : 2.170531
+diff --brief correct.txt output.txt
+
+No other prompts showed, which means it has passed the correctness test
+
+4. Lastly, we need to check if there are any memory leaks.
+Looking at the piazza post from the TA, it is suggested that we disregred
+the memory leak issue and there is a bug in some openmp code.
+
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make checkmem
+mtrace filter mtrace.out || true
+env: ‘./filter’: No such file or directory
+Cannot open mtrace data file at /usr/bin/mtrace line 147.
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make clean
+rm -f seq omp filter output.txt mtrace.out gprof.out
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make
+gcc -o omp  -O3 -fopenmp filter.c main.c func.c util.c -lm
+cp omp filter
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make omp MTRACE=1
+gcc -o omp  -O3 -DMTRACE -fopenmp filter.c main.c func.c util.c -lm
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ ./omp
+FUNC TIME : 0.035646
+TOTAL TIME : 2.121803
+[jaehyung@lnxsrv07 ~/CS33/lab4/openmplab]$ make checkmem
+mtrace filter mtrace.out || true
+
+Memory not freed:
+-----------------
+           Address     Size     Caller
+0x0000000001da0060   0x1ce0  at 0x7f6576223869
+0x0000000001da1d50     0xc0  at 0x7f6576223869
+0x0000000001da1e20     0xe8  at 0x7f65762238b9
+0x0000000001da1f10    0x240  at 0x7f6576753c25
+0x0000000001da2160    0x240  at 0x7f6576753c25
+0x0000000001da23b0    0x240  at 0x7f6576753c25
+0x0000000001da2600    0x240  at 0x7f6576753c25
+0x0000000001da2850    0x240  at 0x7f6576753c25
+0x0000000001da2aa0    0x240  at 0x7f6576753c25
+0x0000000001da2cf0    0x240  at 0x7f6576753c25
+0x0000000001da2f40    0x240  at 0x7f6576753c25
+0x0000000001da3190    0x240  at 0x7f6576753c25
+0x0000000001da33e0    0x240  at 0x7f6576753c25
+0x0000000001da3630    0x240  at 0x7f6576753c25
+0x0000000001da3880    0x240  at 0x7f6576753c25
+0x0000000001da3ad0    0x240  at 0x7f6576753c25
+0x0000000001da3d20    0x240  at 0x7f6576753c25
+0x0000000001da3f70    0x240  at 0x7f6576753c25
+0x0000000001da41c0    0x240  at 0x7f6576753c25
+0x0000000001da4410    0x240  at 0x7f6576753c25
+0x0000000001da4660    0x240  at 0x7f6576753c25
+0x0000000001da48b0    0x240  at 0x7f6576753c25
+0x0000000001da4b00    0x240  at 0x7f6576753c25
+0x0000000001da4d50    0x240  at 0x7f6576753c25
+0x0000000001da4fa0    0x240  at 0x7f6576753c25
+0x0000000001da51f0    0x240  at 0x7f6576753c25
+0x0000000001da5440    0x240  at 0x7f6576753c25
+0x0000000001da5690    0x240  at 0x7f6576753c25
+0x0000000001da58e0    0x240  at 0x7f6576753c25
+0x0000000001da5b30    0x240  at 0x7f6576753c25
+
+From the code above, we can observe the funcion at memory location 0x240 has
+a bug in the code. This leaks for 181-152+1 = 30 threads.
+
+Again, the TA mentioned the code has a bug in it, so don't need to worry
+about memory leaks for now.
+
+5. And really for the last part, just run the code at the bottom
+$ expand func.c openmplab.txt | awk '/\r/ || 200 < length'

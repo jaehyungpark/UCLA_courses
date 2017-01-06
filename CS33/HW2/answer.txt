@@ -1,0 +1,21 @@
+CS 33 HW1 answer.txt
+
+Problem 3.60
+A) values of x is initially stored in $rdi and then moved to %r8.
+   values of n is initially stored in %esi and then moved to %ecx.
+   values of result is stored in %rax
+   values of mask is stored in %rdx
+
+B) Initial values of result is 0
+   Initial values of mask is 1
+
+C) mask != 0; mask << (n & 0xFF);
+
+D) mask = mask << (n & 0xFF);
+   // given asm snippet salq  %cl, %rdx
+   this shows that mask is left shifted by cl, which is
+   the lower 8 bits of n.
+
+E) result |= (x & mask); 
+
+F) the missing parts of the C code is in loop.c

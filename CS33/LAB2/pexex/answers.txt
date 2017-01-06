@@ -1,0 +1,56 @@
+Jaehyung Park
+504212821
+
+CS 33 Dis 1A
+answers.txt
+
+------------------------
+1) The instruction that caused the error is shown below:
+
+0x00000000005436af <arith_driver+431>lisp.h:700 lea    0x0(,%rbp,4),%rax
+
+The line left shifts by two (multiply by 4) and adds 0x0 to %rax, which results an overflow.
+In data.c, we can see 'sar $0x2, %rdi' that Emacs right shifts by 2, which clears out the upper
+two bits (we lose the upper bit data) and masks the resulting value by INTMASK.
+
+2) Looking in data.c from Emacs source code, 'most-positive-fixnum' is defined as below:
+
+3678   DEFVAR_LISP ("most-positive-fixnum", Vmost_positive_fixnum,
+3679                doc: /* The largest value that is representable in a Lisp integer.  */);
+3680   Vmost_positive_fixnum = make_number (MOST_POSITIVE_FIXNUM);
+3681   XSYMBOL (intern_c_string ("most-positive-fixnum"))->constant = 1;
+
+Which 'most-positive-fixnum' has the value of 'Vmost_positive_fixnum' and this 'Vmost_positive_fixnum'
+is defined by 'MOST_POSITIVE_FIXNUM'.
+The reference of 'MOST_POSITIVE_FIXNUM' was located in lisp.h and was defined as below:
+
+#define MOST_POSITIVE_FIXNUM (EMACS_INT_MAX >> INTTYPEBITS)
+
+The 'INTTYPEBITS' is set to 2 and 'EMACS_INT_MAX' is defined as LONG_MAX which is = 0x7fffffffffffffff
+We do a right shift by 2 (INTTYPEBITS), we will get 0x1fffffffffffffff, which is 2305843009213693951
+
+3) The most-positive-fixnum has the hex value of 0x7ffffffffffffff. The multiplication of two
+most-positive-fixnums will result a 64 bit representation binary number that 63th, 62nd, and 0th bit
+is 1 and the rest is 0. From question 1), Emacs will left shift by 2 and right shift by 2 again
+because of the overflow, which will result 0000....00001 (64 bit) output that results to 1.
+
+4) Using -fsanitize=undefined, whenever the program occurs or encounters an overflow, the
+program will handle the overflow and prompt any runtime error messages. Applying -fsanitize flag, 
+gcc will make additional checks for overflow based on OF (Overflow Flag) when we multiplying
+two most-positive-fixnum.
+
+5) Using -frwapv will allow the gcc compiler for overflow and wrap up the overflowed result.
+This option will not provide any runtime errors or messages, but since it allows overflow, the
+mathematical result will not be correct.
+
+6) Assuming -fwrapv is used, Emacs will create more instruction code and check flags to 
+handle overflow. This can lead to create more machine code and time to handle extra arguments the
+there is really no reason to use Emacs to check for any overflow. Instead we can  perform to compile
+the code without checking for overflow before running the process.
+
+7) From the results of textovf lab, the less options we choose to compile will product less
+machine code instructions, which leads to higher performance. For example, Using gcc with -O2 
+soley will have one line of instructions, while using -frwapv and -fsanitize=undefined, in Emacs
+execution will produce extra lines of machine code to process, causing more instruction time to 
+handle the code. The difference will not be noticible with few multiplication, but will increase 
+with it gets large enough.

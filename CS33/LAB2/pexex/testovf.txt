@@ -1,0 +1,113 @@
+Jaehyung Park
+504212821
+
+CS 33 Dis 1A
+testovf.txt
+
+------------------------
+Below is the code that was given for the testovf part of the lab.
+#include <limits.h>
+#include <stdbool.h>
+long big = LONG_MAX;
+bool
+testovf (void)
+{
+    return big + LONG_MAX < big;
+}
+
+We will be testing this code with three different GCC commands and compare them.
+
+i) -O2
+The -O2 flag of gcc levels up the optimization by 2 to the c code.
+The code below is the generated asm code.
+
+$ gcc -O2 -S testovf.c
+
+testovf:
+.LFB0:
+    .cfi_startproc
+    xorl    %eax, %eax
+    ret
+    .cfi_endproc
+
+The -O2 optimization ignores the overflowing case and makes an assumption that the
+sum of any two numbers is always greater than either of the numbers in every case.
+By this assuemption, the compiler takes the statement big + LONG_MAX < big; always to be
+false and returns 0.
+
+
+ii) -O2 -fsanitize=undefined
+The -fsanitize=undefined flag is an undefined behavior check to prompt out any error
+messages during the compile runtime and continue the execution. It will keep on
+detecting any kind of behavior that is undefined. The code below is the asm code.
+
+$ gcc -O2 -S -fsanitize=undefined testovf.c
+
+testovf:
+.LFB0:
+    .cfi_starproc
+    pushq   %rbp
+    .cfi_def_cfa_offset 16
+    .cfi_offset 6, -16
+    pushq   %rbx
+    .cfi_def_cfa_offset 24
+    .cfi_offset 3, -24
+    movabsq $9223372036854775807, %rdx
+    subq    $8, %rsp
+    .cfi_def_cfa_offset 32
+    movq    big(%rip), %rbx
+    movq    %rbx, %rbp
+    addq    %rdx, %rbp
+    jo  .L6
+.L2:
+    cmpq    %rbp, %rbx
+    setg    %al
+    addq    $8, %rsp
+    .cfi_remember_state
+    .cfi_def_cfa_offset 24
+    popq    %rbx
+    .cfi_def_cfa_offset 16
+    popq    %rbp
+    .cfi_def_cfa_offset 8
+    ret
+.L6:
+    .cfi_restore_state
+    movq    %rbx, %rsi
+    movl    %.Lubsan_data0, %edi
+    call    __ubsan_handle_add_overflow
+    jmp .L2
+    .cfi_endproc
+
+In the asm code, the machine instruction pushes %rdx and %rbx in the stack and adds big with
+LONG_MAX. In the addq %rbx, %rbp line, when overflow occurs, overflow is assigned to 1 and
+the -fsanitize-undefined flag jumps to .L6. In .L6, %.Lubsan_data0 moves to %edi and calls
+__ubsan_handle_add_overflow function to print out runtime errors during the process.
+Then jumps to .L2 and bascially do a comparison.
+
+
+ii) -O2 -fwrapv
+The -fwrapv flag is to make the compiler to wrap when an overflow occurs. Regardless of
+having an overflow or not, the -fwrapv flag performs the operation.
+The code below is the generated asm code.
+
+$ gcc -O2 -S -fwrapv testovf.c
+
+testovf:
+.LFB0:
+    .cfi_startproc
+    movq    big(%rip), %rdx
+    movabsq %9223372036854775807, %rax
+    addq    %rdx, %rax
+    cmpq    %rax, %rdx
+    setg    %al
+    ret
+    .cfi_endproc
+
+The first line of the asm code, big(%rip), %rdx shows that big(%rip), which refers to
+LONG_MAX is stored (movq) into %rdx and the immediate value (movabsq) is stored in %rax.
+The overflowed and wrapped up result will be stored in %rax and be compared to %rdx,
+which %rdx has the LONG_MAX value. The comparison will return true.
+
+Overall, comparing the three different flag commands of -O2, the difference lays on how
+to tell the compiler to ignore cases of overflowing by ignoring it and returning false.
+

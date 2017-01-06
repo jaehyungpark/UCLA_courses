@@ -1,0 +1,27 @@
+// CS 33 HW 5
+
+Problem 1) 12.18
+
+A. H2, L2, U2, H1, L1, S2, U1, S1, T1, T2
+This path is unsafe
+
+B. H2, H1, L1, U1, S1, L2, T1, U2, S2, T2
+This path is safe
+
+C. H1, L1, H2, L2, U2, S2, U1, S1, T1, T2
+This path is unsafe
+
+Problem 2) 12.24
+
+Looking at the functions in 10.4, all of the RIO unbuffered input and output packages
+pass a pointer into the functions that these functions are implicitly reentrant.
+Pointers such as void *usrbuf and rio_t *rp are passed in as a void pointer.
+However, we can look into two different situations.
+One is that the caller doesn't pass the address of the shared data and the functions
+are implicitly reentrant.
+Second is that the caller does pass the address of the shared data and the functions
+are non-reentrant.
+Looking at the figure in 10.5 shows that the caller doesn't pass any shared data and 
+we can observe that the functions are non-reentrant.
+Thus, functions are implicitly reentrant, but depending how it's being used, it also
+can be non-reentrant.

@@ -1,0 +1,59 @@
+// CS 33 HW4
+// Prob 2.89
+
+A. (float) x == (float) dx
+False
+: the lhs is to convert int to float, which will cause rounding errors.
+the rhs is to convert double to float, which will also cause rounding errors or over/underflow to +/- oo.
+because both lhs and rhs can cause rounding errors, the statement cannot be correct.
+
+this question can be affected if we use -fwrapv, since -fwrapv will wrap any number when overflow occurs.
+since both rhs and lhs overflows, -fwrapv will wrap these numbers that can affect the given statement.
+
+B. dx - dy = (double) (x-y)
+False
+: for example, if we take x = INT_MAX and y = any negative integer, x-y results as x+y.
+this is important to know because rhs can overflow when we do the operation with integers.
+then, casting this value to a double will result an incorrect value.
+the lhs, since double has more bits than integers that results no overflow and output the
+correct value that is not the same as rhs.
+
+this question can be affected if we use -fwrapv.
+because using x = INT_MAX and y = -1, rhs (x-y) will give an overflow and -fwrapv wraps up the number,
+but dx - dy will give the correct value.
+
+C. (dx + dy) + dz == dx + (dy + dz)
+True
+: it is well known that there is no associative property for floating points, but 
+double has more bits than integers have that can cover the range.
+for example, if we take dx = dy = dz = INT_MAX or INT_MIN, the given addition
+operation will not cause any rounding errors and always produce the correct answer.
+
+this question will not be affected if we use -fwrapv.
+since both lhs and rhs is within the range of double and no overflow occurs, using -fwrapv 
+will not affect the statement.
+
+D. (dx * dy) * dz == dx * (dy * dz)
+False
+: as we covered in problem C, associative property does not work for floating points,
+and since double can hold up to 52 fractional bits, if the multiplication exceeds that
+the result will not be correct.
+for example, if we take dx = 2^28-1, dy = 2^26, and dz = 2^-1, we can compare them below:
+the first parameter of lhs will produce 2^54 which already exceeds the maximum range and 
+produce a rounding error.
+the first parameter of rhs will be 2^25 and multiplying with 2^28-1 will produce 2^53-2^25
+which is in range and produce the correct value.
+since lhs != rhs, this statement is false
+
+this question will be affected if we use -fwrapv.
+using the same values for dx, dy, and dz, the product of rhs will be in range of double
+while lhs will result an overflow, thus gcc will wrap the lhs value to a smaller number.
+
+E. dx/dx == dz/dz
+False
+: if we have dx = 0 and dz to be any nonzero number, dx/dx results as NaN and dz/dz will be 1.
+comparing any value to NaN results to false.
+
+this question will not be affected if we use -fwrapv (meaning even if we use -fwrapv the answer
+will still be false).
+using the same values for dx and dz, dx/dx still results as NaN which is not the same as dz/dz.

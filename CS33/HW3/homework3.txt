@@ -1,0 +1,106 @@
+// CS 33 Homework 3
+
+1) Problem 3.67
+
+A. eval extends from %rbp to %rsp (total 104 bytes).
+
+   Highest
++-----------+ <-- %rbp
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|           |
+|-----------| <-- %rsp + 32
+|     z     |
+|-----------| <-- %rsp + 24
+|    &z     |
+|-----------| <-- %rsp + 16
+|	    y     |
+|-----------| <-- %rsp + 8
+|     x     |
+|-----------| <-- %rsp
+|           |
++-----------+
+    Lowest
+
+
+B. The c code shows that long function eval passes strA s, but in assembly code, the instruction
+leaq 64(%rsp), %rdi saves eval's stack address into %rdi where the process starts to build.
+Since the %rsp pointer only refers to straA s with its offsets, the %rsp pointer is passed into 
+and processed by eval.
+
+C. Process uses %rsp pointer to access the elements of structure strA arguments with different 
+offset values. The call procress instruction points %rsp pointer to the return address, which is 
+8 bytes below by return. Overall, movq 16(%rsp), %rcx accesses y in strA that corresponds to s.a[0]
+                                  movq 8(%rsp), %rcx accesses x in strA that corresponds to s.a[1]
+                                  movq %rdx, 16(%rdi) moves z above the base by 16 bytes
+
+D. In the assembly code, the results after we access through strA s is stored in %rcx for s.a[0]
+and s.[1] where the *s.p is stored in %rdx and moves into (%rdi), 8(%rdi), 16(%rdi) that
+each corresponds to the location in eval's stack. (which is shown in prob A diagram) 
+This is allocated for strB r that is 64 bytes above from %rsp.
+
+E. In the assembly code, we can see strA s is allocated from %rsp + 8 to 32, while strB r is
+allocated from %rsp + 64 to 88. The remaining memory space (empty space) between strA and strB
+leaves 32 bytes which can be explained that usually data is not perfectly aligned right next
+to each structures. The eval function accesses through strB r by each %rsp + offset that 
+corresponds to the offset values to access r.u[0], r.u[1],and r.q. 
+So, y corresponds to r.u[1], x to r.u[0],and z to r.q respectively.
+
+
+   Highest
++-----------+ <-- %rbp
+|           |
+|           |
+|-----------| <-- %rsp + 88
+|     z     |
+|-----------| <-- %rsp + 80
+|     x     |
+|-----------| <-- %rsp + 72
+|     y     |
+|-----------| <-- %rsp + 64
+|           |
+|           |
+|           |
+|           |
+|-----------| <-- %rsp + 40
+|     z     |
+|-----------| <-- %rsp + 32
+|    &z     |
+|-----------| <-- %rsp + 24
+|     y     |
+|-----------| <-- %rsp + 16
+|	    x     |
+|-----------| <-- %rsp + 8
+|    ret    | <-- (address of return)
+|-----------| <-- %rsp
+|           |
++-----------+
+    Lowest
+
+
+F. Passing the structure values as function arguments copies all of its private members in structure that
+takes extra memory space in the stack. In eval, calling to process %rax register saves the value in 72(%rsp)
+and adds to %rax that corresponds to r.u[1] in strB r. Thus, we can discern that structure values passes 
+as function arguments works like a pointer accessing through each function results.
+
+
+2) Problem 3.70
+
+A.  
+    e1.p    : 0 bytes offset
+    e1.y    : 8 bytes offset
+    e2.x    : 0 bytes offset
+    e2.next : 8 bytes offset 
+
+B. (adding all up) 16 bytes
+
+C. 
+    void proc(union ele *up)
+    {
+        up->e2.next->e1.y = *(up->e2.next->e1.p) - up->e2.x;
+    }
