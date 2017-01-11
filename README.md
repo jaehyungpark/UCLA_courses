@@ -8,6 +8,8 @@ Materials will include notes, pdfs, class/project codes, and homeworks.
  * CS 35L
  * CS 180
  * CS M117
+ * CS 111
+ * CS 174A
 * Electrical Engineering
  * EE M16
  * EE 102
@@ -19,4 +21,4 @@ Materials will include notes, pdfs, class/project codes, and homeworks.
  * EE 115C
  * EE 133A
 
-Updated: October, 2016
+Updated: January, 2017
