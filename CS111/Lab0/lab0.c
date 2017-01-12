@@ -62,6 +62,7 @@ main(int argc, char **argv)
 			}
 			break;
 		case 'c':
+			// whenever the program has a segfault, it creates a SIGSEGV signal
 			signal(SIGSEGV, sigsegv_handler);
 			break;
 	}
