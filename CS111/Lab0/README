@@ -1,0 +1,59 @@
+CS 111 Lab0
+Jaehyung Park
+504212821
+
+The tar zip file (lab0-504212821.tar.gz) contains the following files.
+
+- README
+- lab0.c
+- Makefile
+- backtrace.png
+- segfault.png
+
+1) README is this file. It shows a brief description of the files/code in the tar.gz
+file.
+
+2) lab0.c contains the main source code for the lab. This gets flag options by using
+getopt_long to check and choose different cases to proceed. For the lab, we have
+input, output, segfault, and catch. Input and output flags are used for specific input
+and output files, while stdin and stdout are used as default. --segfault flag will
+cause a segmentation fault by wrongly accessing to a memory and --catch catches if 
+there is a segfault by segment handler and prompts a message.
+
+3) Makefile contains specified macros to make and build the code.
+For default, it executes lab0.c and produces an executable file using gcc.
+
+For check, it runs a portion of test cases that were given by the TA on the piazza post
+to check rather the input and output for stdin and stdout works. 
+It will create a simple input.txt file and test it through by creating an output.txt file.
+At the end of the test, it will remove both input and output files.
+
+I've tried to check segfault and segfault with catch, but I kept getting an error message 
+saying "recipt for target 'check' failed" which I redirected the stdout to /dev/null and
+stdout to stderr to check the exit status (2 and 3 respectively), but it didn't work.
+I checked both cases manually and it worked fine, just didn't properly work on using
+make check.
+
+For clean, it removes all unnecessary files from the initial state, such as object and 
+executable files that only leaves files that are created after untaring the tar file. 
+Because of this reason, the original tar.gz file exists before untaring the tar file.
+
+1. (initial state)
+2. make
+3. (created some files)
+4. make clean
+5. (initial state)
+
+Initially, tar.gz file exists, which should remain the same at 5.
+
+For dist, it tar balls all of the existing files. It will produce an error if
+one of the files are missing. To over/rewrite the pre-existing tar.gz file, it removes
+the original and tars the latest existing files.
+
+4) backtrace.png
+This screenshot shows the backtrace of the segfault using gdb.
+
+5) segfault.png
+This screenshot shows that the pointer used to cause segfault is indeed NULL.
+After run with segment flag, used step command to track each line of code to check
+if the pointer points to NULL.
