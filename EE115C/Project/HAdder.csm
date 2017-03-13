@@ -1,0 +1,9 @@
+Schematic                     | Layout                     | Status
+-------------------------------------------------------------------------------
+NOT schematic ee115c          | NOT layout ee115c          | matched        
+AND schematic ee115c          | AND layout ee115c          | matched        
+NAND2 schematic ee115c        | NAND2 layout ee115c        | matched        
+XORG schematic ee115c         | XORG layout ee115c         | matched        
+HAdder schematic ee115c       | HAdder layout ee115c       | matched        
+
+Schematic and Layout Match

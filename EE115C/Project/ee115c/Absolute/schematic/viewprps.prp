@@ -1,0 +1,208 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  7 20:41:31 2017 " )
+ (Cell  "\\Absolute\\"
+  (View  "schematic"
+   (Inst "\\I0\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"C5\\\" on instance \\\"I0\\\": floating output.\")")
+	 ("partName" "6bit_HA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"S0\" \"S1\" \"S2\" \"S3\" \"S4\" \"S5\" \"nothing\" \"A0\" \"A1\" \"A2\" \"A3\" \"A4\" \"A5\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  6 16:53:42 2017")
+	 ("\\pin#\\" "15")
+	 ("XY" "(-2.250000,1.250000)")
+	))
+   (Inst "\\I1\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"Out0\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck7" "(\"SRC\" \"Warning: Pin \\\"Out5\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck6" "(\"SRC\" \"Warning: Pin \\\"Out5\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck5" "(\"SRC\" \"Warning: Pin \\\"Out4\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck4" "(\"SRC\" \"Warning: Pin \\\"Out3\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck3" "(\"SRC\" \"Warning: Pin \\\"Out2\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck2" "(\"SRC\" \"Warning: Pin \\\"Out1\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("partName" "12to1MUX")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A0\" \"A1\" \"A2\" \"A3\" \"A4\" \"A5\" \"B0\" \"B1\" \"B2\" \"B3\" \"B4\" \"B5\" \"GND\" \"Out0\" \"Out1\" \"Out2\" \"Out3\" \"Out4\" \"Out5\" \"Selector\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  6 17:03:54 2017")
+	 ("\\pin#\\" "21")
+	 ("XY" "(1.125000,-0.750000)")
+	))
+   (Inst "\\I19\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.750000,1.687500)")
+	))
+   (Inst "\\I18\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.625000,0.375000)")
+	))
+   (Inst "\\I17\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.625000,-0.625000)")
+	))
+   (Inst "\\I14\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.750000,-1.625000)")
+	))
+   (Inst "\\I13\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.937500,-4.062500)")
+	))
+   (Inst "\\I11\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-3.687500,-2.875000)")
+	))
+   (Inst "\\I27\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.875000,2.687500)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+   (Inst "\\I26\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.125000,-5.750000)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+   (Inst "\\I25\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.125000,-7.750000)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+   (Inst "\\I24\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.125000,-7.062500)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+   (Inst "\\I23\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.125000,-6.312500)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+   (Inst "\\I21\\"
+	(Pr
+	 ("CDLBlackBox" "TRUE")
+	 ("info" "[@libName]:[@cellName]:[@instanceName]")
+	 ("gridSpacing" "0.125000")
+	 ("xSnapSpacing" "0.062500")
+	 ("startLevel" "0")
+	 ("ySnapSpacing" "0.062500")
+	 ("\\pin#\\" "11")
+	 ("gridMultiple" "8")
+	 ("stopLevel" "20")
+	 ("CDLGenerateSubcircuitCard" "FALSE")
+	 ("XY" "(-2.125000,-8.375000)")
+	)
+	(IPrt "\\VSS\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VSS:%:VSS!]")))
+	(IPrt "\\VDD\\"
+	 (Pr
+	 ("DB_Inherited_Net_Expr" "[@VDD:%:VDD!]"))))
+  )
+ )
+)

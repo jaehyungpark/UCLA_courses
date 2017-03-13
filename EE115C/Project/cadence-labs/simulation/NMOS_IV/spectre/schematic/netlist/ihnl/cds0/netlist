@@ -1,0 +1,13 @@
+
+// Library name: ee115c
+// Cell name: NMOS_IV
+// View name: schematic
+NM0 (net8 net5 net9 net9) gpdk090_nmos1v w=(240n) l=100n as=67.2f ad=67.2f \
+        ps=800n pd=800n m=(1)*(1)
+V4 (net3 net4) vsource dc=0 type=dc
+V3 (net3 net8) vsource dc=0 type=dc
+V2 (net3 net9) vsource dc=VDS type=dc
+V1 (net3 net6) vsource dc=VGS type=dc
+V0 (net5 net9) vsource dc=VGS type=dc
+PM0 (net9 net6 net4 net4) gpdk090_pmos1v w=(480n) l=100n as=134.4f \
+        ad=134.4f ps=1.04u pd=1.04u m=(1)*(1)

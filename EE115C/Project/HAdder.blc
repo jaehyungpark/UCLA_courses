@@ -1,0 +1,9 @@
+"XORG layout ee115c" "XORG schematic ee115c"
+"pmos1v(MOS)" "pmos1v(MOS)"
+"NOT layout ee115c" "NOT schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"nmos1v(MOS)" "nmos1v(MOS)"
+"NAND2 layout ee115c" "NAND2 schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"AND layout ee115c" "AND schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"HAdder layout ee115c" "HAdder schematic ee115c"
+Devices filtered from layout
+"TIE"

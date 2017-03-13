@@ -1,0 +1,8 @@
+"pmos1v(MOS)" "pmos1v(MOS)"
+"OR layout ee115c" "OR schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"NOT layout ee115c" "NOT schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"nmos1v(MOS)" "nmos1v(MOS)"
+"AND layout ee115c" "AND schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"MUXblock layout ee115c" "MUXblock schematic ee115c"
+Devices filtered from layout
+"TIE"

@@ -1,0 +1,164 @@
+HEADER
+"PSFversion" "1.00"
+"Run Generator" "drlRun rev. 1.0"
+"Run Time Stamp" "Jan 24 08:02:37 2017"
+"date" "Jan 24 08:02:37 2017"
+"simulator" "spectre"
+"netlistDir" "../netlist"
+"tranSST2Data" "TRUE"
+TYPE
+"runObject" STRUCT(
+"logName" ARRAY( * ) STRING *
+"parent" STRING *
+"sweepVariable" ARRAY( * ) STRING *
+) PROP( "key" "runObject" )
+VALUE
+"Root" "runObject" (
+("")
+""
+("VGS")
+)
+"VGS=0/psf" "runObject" (
+(
+"../VGS=0/psf/logFile"
+"../VGS=0/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0"
+ "VGS" 0.000000e+00
+)
+
+"VGS=0.1/psf" "runObject" (
+(
+"../VGS=0.1/psf/logFile"
+"../VGS=0.1/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.1"
+ "VGS" 1.000000e-01
+)
+
+"VGS=0.2/psf" "runObject" (
+(
+"../VGS=0.2/psf/logFile"
+"../VGS=0.2/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.2"
+ "VGS" 2.000000e-01
+)
+
+"VGS=0.3/psf" "runObject" (
+(
+"../VGS=0.3/psf/logFile"
+"../VGS=0.3/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.3"
+ "VGS" 3.000000e-01
+)
+
+"VGS=0.4/psf" "runObject" (
+(
+"../VGS=0.4/psf/logFile"
+"../VGS=0.4/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.4"
+ "VGS" 4.000000e-01
+)
+
+"VGS=0.5/psf" "runObject" (
+(
+"../VGS=0.5/psf/logFile"
+"../VGS=0.5/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.5"
+ "VGS" 5.000000e-01
+)
+
+"VGS=0.6/psf" "runObject" (
+(
+"../VGS=0.6/psf/logFile"
+"../VGS=0.6/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.6"
+ "VGS" 6.000000e-01
+)
+
+"VGS=0.7/psf" "runObject" (
+(
+"../VGS=0.7/psf/logFile"
+"../VGS=0.7/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.7"
+ "VGS" 7.000000e-01
+)
+
+"VGS=0.8/psf" "runObject" (
+(
+"../VGS=0.8/psf/logFile"
+"../VGS=0.8/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.8"
+ "VGS" 8.000000e-01
+)
+
+"VGS=0.9/psf" "runObject" (
+(
+"../VGS=0.9/psf/logFile"
+"../VGS=0.9/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=0.9"
+ "VGS" 9.000000e-01
+)
+
+"VGS=1/psf" "runObject" (
+(
+"../VGS=1/psf/logFile"
+"../VGS=1/psf/artistLogFile"
+)
+"Root"
+()
+) PROP(
+"netlistDir" "../netlist"
+"dataDir" "../VGS=1"
+ "VGS" 1.000000e+00
+)
+
+END

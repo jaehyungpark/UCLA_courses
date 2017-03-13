@@ -1,0 +1,53 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  6 23:05:28 2017 " )
+ (Cell  "\\COMP_mod1\\"
+  (View  "schematic"
+   (Inst "\\I8\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-0.625000,0.437500)")
+	))
+   (Inst "\\I9\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-0.625000,-1.187500)")
+	))
+   (Inst "\\I5\\"
+	(Pr
+	 ("partName" "NOR")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:19:20 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(3.375000,-0.312500)")
+	))
+   (Inst "\\I7\\"
+	(Pr
+	 ("partName" "AND")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:14:37 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(1.625000,-1.000000)")
+	))
+   (Inst "\\I6\\"
+	(Pr
+	 ("partName" "AND")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:14:37 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(1.625000,0.312500)")
+	))
+  )
+ )
+)

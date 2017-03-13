@@ -1,0 +1,62 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  5 17:55:42 2017 " )
+ (Cell  "\\6bit_FA\\"
+  (View  "schematic"
+   (Inst "\\I6\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(5.500000,1.437500)")
+	))
+   (Inst "\\I5\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(3.312500,1.437500)")
+	))
+   (Inst "\\I4\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(1.125000,1.375000)")
+	))
+   (Inst "\\I3\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(-1.062500,1.375000)")
+	))
+   (Inst "\\I1\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(-3.187500,1.312500)")
+	))
+   (Inst "\\I0\\"
+	(Pr
+	 ("partName" "1bit_FA")
+	 ("vendorName" "")
+	 ("portOrder" "(\"Cout\" \"Sum\" \"A\" \"B\" \"Cin\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 17:11:23 2017")
+	 ("\\pin#\\" "7")
+	 ("XY" "(-5.437500,1.250000)")
+	))
+  )
+ )
+)

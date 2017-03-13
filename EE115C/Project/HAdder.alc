@@ -1,0 +1,6 @@
+!<alc> v1 20
+0    8    0 NOT layout ee115c
+0    7    0 NAND2 layout ee115c
+0   12    0 XORG layout ee115c
+0   11    0 AND layout ee115c
+0   13    0 HAdder layout ee115c

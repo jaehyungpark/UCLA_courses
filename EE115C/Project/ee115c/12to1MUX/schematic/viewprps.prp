@@ -1,0 +1,62 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  7 19:33:38 2017 " )
+ (Cell  "\\12to1MUX\\"
+  (View  "schematic"
+   (Inst "\\I5\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-6.812500,-3.187500)")
+	))
+   (Inst "\\I4\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-1.437500,5.500000)")
+	))
+   (Inst "\\I3\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-2.625000,4.000000)")
+	))
+   (Inst "\\I2\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-5.812500,-1.375000)")
+	))
+   (Inst "\\I1\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-4.750000,0.500000)")
+	))
+   (Inst "\\I0\\"
+	(Pr
+	 ("partName" "MUXblock")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"C\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:26:43 2017")
+	 ("\\pin#\\" "6")
+	 ("XY" "(-3.687500,2.250000)")
+	))
+  )
+ )
+)

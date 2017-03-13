@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      nestor
+HostName                       eeapps03.seas.ucla.edu
+ProcessIdentifier              45941
+ProcessCreationTime_UTC        1488846629
+ProcessCreationTime_Readable   Mon Mar  6 16:30:29 2017 PST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /w/home.03/ee/ugrad/nestor/ee115c/JaePark_work/Absolute/symbol/symbol.oa.cdslck
+TimeEditLocked                 Mon Mar  6 17:57:47 2017 PST

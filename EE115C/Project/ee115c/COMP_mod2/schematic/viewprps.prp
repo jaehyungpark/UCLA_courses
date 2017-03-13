@@ -1,0 +1,26 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  6 23:02:15 2017 " )
+ (Cell  "\\COMP_mod2\\"
+  (View  "schematic"
+   (Inst "\\I7\\"
+	(Pr
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(0.750000,-0.125000)")
+	))
+   (Inst "\\I8\\"
+	(Pr
+	 ("partName" "AND")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:14:37 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(2.437500,0.062500)")
+	))
+  )
+ )
+)

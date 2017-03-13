@@ -1,0 +1,71 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  5 17:10:29 2017 " )
+ (Cell  "\\1bit_FA\\"
+  (View  "schematic"
+   (Inst "\\I2\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"out1\" \"GND\" \"VDD\" \"a1\" \"b1\")")
+	 ("schGeometryVersion" "sch.ds.gm.1.4")
+	 ("schGeometryLastUpdated" "326")
+	 ("interfaceLastChanged" "Mar  5 16:18:22 2017")
+	 ("\\net#\\" "0")
+	 ("schXtrVersion" "sch.10.0")
+	 ("connectivityLastUpdated" "326")
+	 ("lastSchematicExtraction" "Mar  5 16:21:31 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(1.875000,-0.125000)")
+	))
+   (Inst "\\I1\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"out1\" \"GND\" \"VDD\" \"a1\" \"b1\")")
+	 ("schGeometryVersion" "sch.ds.gm.1.4")
+	 ("schGeometryLastUpdated" "326")
+	 ("interfaceLastChanged" "Mar  5 16:18:22 2017")
+	 ("\\net#\\" "0")
+	 ("schXtrVersion" "sch.10.0")
+	 ("connectivityLastUpdated" "326")
+	 ("lastSchematicExtraction" "Mar  5 16:21:31 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-0.312500,-0.687500)")
+	))
+   (Inst "\\I0\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"out1\" \"GND\" \"VDD\" \"a1\" \"b1\")")
+	 ("schGeometryVersion" "sch.ds.gm.1.4")
+	 ("schGeometryLastUpdated" "326")
+	 ("interfaceLastChanged" "Mar  5 16:18:22 2017")
+	 ("\\net#\\" "0")
+	 ("schXtrVersion" "sch.10.0")
+	 ("connectivityLastUpdated" "326")
+	 ("lastSchematicExtraction" "Mar  5 16:21:31 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-0.500000,0.750000)")
+	))
+   (Inst "\\I4\\"
+	(Pr
+	 ("partName" "XORG")
+	 ("vendorName" "")
+	 ("portOrder" "(\"out\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 16:48:05 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(0.375000,2.312500)")
+	))
+   (Inst "\\I3\\"
+	(Pr
+	 ("partName" "XORG")
+	 ("vendorName" "")
+	 ("portOrder" "(\"out\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  5 16:48:05 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-1.375000,2.312500)")
+	))
+  )
+ )
+)

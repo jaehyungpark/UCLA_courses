@@ -1,0 +1,6 @@
+"pmos1v(MOS)" "pmos1v(MOS)"
+"nmos1v(MOS)" "nmos1v(MOS)"
+"NAND2 layout ee115c" "NAND2 schematic ee115c" "nmos1v(MOS)" "pmos1v(MOS)"
+"XORG layout ee115c" "XORG schematic ee115c"
+Devices filtered from layout
+"TIE"

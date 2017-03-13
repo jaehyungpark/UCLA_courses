@@ -1,0 +1,12 @@
+!<alc> v1 32
+0    8    0 NOT layout ee115c
+0    7    0 NAND2 layout ee115c
+0   17    0 XORG layout ee115c
+0   16    0 OR layout ee115c
+0   15    0 AND layout ee115c
+0   20    0 NOR layout ee115c
+0   19    0 MUXblock layout ee115c
+0   18    0 HAdder layout ee115c
+0   22    0 comparator layout ee115c
+0   21    0 ABSol layout ee115c
+0   23    0 Abs_Value_Detector layout ee115c

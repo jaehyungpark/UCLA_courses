@@ -1,0 +1,18 @@
+;----------------------------------------------------------------------------
+; @(#)$CDS: assura version av4.1:Production:dfII6.1.5:IC6.1.5.500.10 08/01/12 07:19 (sfrh156) $
+; sub-version 4.1_USR2_HF20
+;----------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------
+; avParameter Section
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avParameters(
+  ?inputLayout ( "df2" "ee115c" )
+  ?cellName "NOT"
+  ?viewName "layout"
+  ?rulesFile "/usr/public.2/ee115c/cadence-labs/gpdk090_v3.4/assura/drc.rul"
+  ?avrpt t
+)

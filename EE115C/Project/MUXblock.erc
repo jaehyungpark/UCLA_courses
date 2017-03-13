@@ -1,0 +1,13 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'MUXblock layout ee115c':
+  info: Assign pin label "B" at (0.3350, -5.8950) to layer `Metal1_p'.
+  info: Assign pin label "GND" at (0.7000, -5.2650) to layer `Metal1_p'.
+  info: Assign pin label "A" at (0.2600, -4.5500) to layer `Metal1_p'.
+  info: Assign pin label "C" at (0.5150, -3.6750) to layer `Metal1_p'.
+  info: Assign pin label "Vdd" at (0.7150, -2.1500) to layer `Metal1_p'.
+  info: Assign pin label "Out" at (18.1200, -3.6500) to layer `Metal1_p'.
+
+***** End of Label Report *****
+

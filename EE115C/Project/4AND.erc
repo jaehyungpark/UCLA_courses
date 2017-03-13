@@ -1,0 +1,14 @@
+
+***** Begin Label Report *****
+
+ Label in cell '4AND layout ee115c':
+  info: Assign pin label "GND" at (2.2450, -6.9950) to layer `Metal1_p'.
+  info: Assign pin label "A" at (2.0500, -6.2350) to layer `Metal1_p'.
+  info: Assign pin label "B" at (2.0450, -5.8550) to layer `Metal1_p'.
+  info: Assign pin label "C" at (2.0300, -5.2400) to layer `Metal1_p'.
+  info: Assign pin label "D" at (2.0150, -4.2950) to layer `Metal1_p'.
+  info: Assign pin label "Vdd" at (2.1600, -1.6650) to layer `Metal1_p'.
+  info: Assign pin label "Out" at (5.9900, -3.7800) to layer `Metal1_p'.
+
+***** End of Label Report *****
+

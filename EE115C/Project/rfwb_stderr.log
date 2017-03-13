@@ -1,0 +1,5 @@
+cdnshelp.exe: cannot connect to X server localhost:11.0
+cdnshelp.exe: cannot connect to X server localhost:11.0
+cdnshelp.exe: cannot connect to X server localhost:11.0
+IO Error 11 (Resource temporarily unavailable) on Display "localhost:11.0"
+Aborting due to fatal X IO error.

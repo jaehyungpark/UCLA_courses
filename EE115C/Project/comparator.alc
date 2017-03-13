@@ -1,0 +1,6 @@
+!<alc> v1 24
+0    3    0 NOT layout ee115c
+0   14    0 OR layout ee115c
+0   13    0 NOR layout ee115c
+0   12    0 AND layout ee115c
+0   15    0 comparator layout ee115c

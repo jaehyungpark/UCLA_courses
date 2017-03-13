@@ -1,0 +1,26 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  7 22:46:24 2017 " )
+ (Cell  "\\Abs_Value_Detector\\"
+  (View  "schematic"
+   (Inst "\\I1\\"
+	(Pr
+	 ("partName" "ABSol")
+	 ("vendorName" "")
+	 ("portOrder" "(\"S0\" \"S1\" \"S2\" \"S3\" \"S4\" \"S5\" \"A0\" \"A1\" \"A2\" \"A3\" \"A4\" \"A5\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  7 21:13:37 2017")
+	 ("\\pin#\\" "14")
+	 ("XY" "(-1.750000,1.062500)")
+	))
+   (Inst "\\I2\\"
+	(Pr
+	 ("partName" "comparator")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A0\" \"A1\" \"A2\" \"A3\" \"A4\" \"B0\" \"B1\" \"B2\" \"B3\" \"B4\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 15:03:57 2017")
+	 ("\\pin#\\" "13")
+	 ("XY" "(0.062500,1.375000)")
+	))
+  )
+ )
+)

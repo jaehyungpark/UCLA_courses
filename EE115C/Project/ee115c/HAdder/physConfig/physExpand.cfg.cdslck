@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      jaehyung
+HostName                       eeapps01.seas.ucla.edu
+ProcessIdentifier              131381
+ProcessCreationTime_UTC        1489354695
+ProcessCreationTime_Readable   Sun Mar 12 14:38:15 2017 PDT
+AppIdentifier                  /w/apps3/Cadence/IC615/tools/dfII/bin/32bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /w/home.01/ee/ugrad/jaehyung/ee115c/ee115c/HAdder/physConfig/physExpand.cfg
+TimeEditLocked                 Sun Mar 12 14:39:42 2017 PDT

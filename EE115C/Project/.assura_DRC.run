@@ -1,0 +1,3 @@
+#!/bin/sh -f
+/w/apps3/Cadence/ASSURA41/tools/assura/bin/assura /w/home.01/ee/ugrad/jaehyung/ee115c/Abs_Value_Detector.rsf -cdslib /w/home.01/ee/ugrad/jaehyung/ee115c/cds.lib -restart -gui
+exit $?

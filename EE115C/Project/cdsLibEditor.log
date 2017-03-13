@@ -1,0 +1,13 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 32.10 11/11/2011 13:45 (cat91amd) $
+\o Sub version:		sub-version  s008 
+\o Arguments:		-cdslib /w/home.01/ee/ugrad/jaehyung/ee115c/cds.lib -mpssession virtuoso122243 -mpshost eeapps01.seas.ucla.edu 
+\o Working Directory:	eeapps01.seas.ucla.edu:/w/home.01/ee/ugrad/jaehyung/ee115c
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.5.3
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "analogLib"
+\a nrResizeWindow(cdsLibEditor list(95 51 500 400))
+\a cdsLibEditor->fileExitButton->value = t
+\a nrSetWindowVisibility(cdsLibEditor "hide")
+\a exit(0)

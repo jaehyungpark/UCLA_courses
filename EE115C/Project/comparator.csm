@@ -1,0 +1,9 @@
+Schematic                      | Layout                       | Status
+-------------------------------------------------------------------------------
+NOT schematic ee115c           | NOT layout ee115c            | matched     
+OR schematic ee115c            | OR layout ee115c             | matched     
+AND schematic ee115c           | AND layout ee115c            | matched     
+NOR schematic ee115c           | NOR layout ee115c            | matched     
+comparator schematic ee115c    | comparator layout ee115c     | matched     
+
+Schematic and Layout Match

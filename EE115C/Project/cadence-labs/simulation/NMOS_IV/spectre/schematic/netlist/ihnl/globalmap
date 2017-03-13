@@ -1,0 +1,11 @@
+CADENCE IHNL01070
+$model
+ee115c/NMOS_IV/schematic NMOS_IV
+$endmodel
+$net
+$endnet
+$param
+VDS VDS
+VSB VSB
+VGS VGS
+$endparam

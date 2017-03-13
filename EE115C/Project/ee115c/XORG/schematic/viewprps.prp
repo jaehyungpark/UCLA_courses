@@ -1,0 +1,44 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  7 19:30:00 2017 " )
+ (Cell  "\\XORG\\"
+  (View  "schematic"
+   (Inst "\\I7\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"OUT\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  6 23:30:48 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-1.125000,-2.062500)")
+	))
+   (Inst "\\I5\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"OUT\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  6 23:30:48 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-3.375000,-1.125000)")
+	))
+   (Inst "\\I8\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"OUT\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  6 23:30:48 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(1.250000,-1.000000)")
+	))
+   (Inst "\\I6\\"
+	(Pr
+	 ("partName" "NAND2")
+	 ("vendorName" "")
+	 ("portOrder" "(\"OUT\" \"A\" \"B\" \"GND\" \"VDD\")")
+	 ("interfaceLastChanged" "Mar  6 23:30:48 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(-1.125000,0.312500)")
+	))
+  )
+ )
+)

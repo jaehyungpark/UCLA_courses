@@ -1,0 +1,24 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "NMOS_IV"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+  netlistDir "/w/home.01/ee/ugrad/jaehyung/ee115c/cadence-labs/simulation/NMOS_IV/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+ )
+( inst
+ )
+( model
+( "ee115c/NMOS_IV/schematic" "NMOS_IV" )
+ )
+( term
+ )
+( param
+ )
+( "NMOS_IV" "ihnl/cds0/map" )
+ )

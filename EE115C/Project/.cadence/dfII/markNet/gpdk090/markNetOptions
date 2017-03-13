@@ -1,0 +1,14 @@
+# Do not remove or change these header lines.
+# markNetOptions file version 1.0
+viaLayers(
+Metal8 Via8 Metal9 t
+Metal7 Via7 Metal8 t
+Metal6 Via6 Metal7 t
+Metal5 Via5 Metal6 t
+Metal4 Via4 Metal5 t
+Metal3 Via3 Metal4 t
+Metal2 Via2 Metal3 t
+Metal1 Via1 Metal2 t
+Poly Cont Metal1 t
+Oxide Cont Metal1 t
+)

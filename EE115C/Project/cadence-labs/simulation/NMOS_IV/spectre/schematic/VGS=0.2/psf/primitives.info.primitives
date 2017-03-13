@@ -1,0 +1,40 @@
+HEADER
+"PSFversion" "1.00"
+"simulator" "spectre"
+"version" "7.1.1.071"
+"date" "8:02:38 AM, Tue Jan 24, 2017"
+"design" "// Generated for: spectre"
+"analysis type" "info.primitives"
+"analysis name" "primitives"
+"analysis description" "Circuit Information"
+"xVecSorted" "unsorted"
+"tolerance.relative" 0.00100000
+TYPE
+"primitive" STRUCT(
+"model" STRING *
+"oppoint" STRING *
+"output" STRING *
+"inst" STRING *
+"region" STRING *
+"terminals" STRING *
+) PROP(
+"key" "prim"
+)
+VALUE
+"bsim3v3" "primitive" (
+"type vtho vfb k1 k2 k3 k3b w0 nlx gamma1 gamma2 vbx vbm dvt0 dvt1 dvt2 dvt0w dvt1w dvt2w a0 b0 b1 a1 a2 ags keta vfbflag nsub nch ngate xj lint wint ll lln lw lwn lwl wl wln ww wwn wwl dwg dwb tox dtoxcv toxm toxe xt rdsw prwb prwg wr binunit binflag lref wref mobmod u0 vsat ua ub uc drout pclm pdiblc1 pdiblc2 pdiblcb pscbe1 pscbe2 pvag delta cdsc cdscb cdscd nfactor cit voff dsub eta0 etab alpha0 alpha1 beta0 rsh rs rd lgcs lgcd rsc rdc rss rdd sc ldif hdif minr js jsw jssw is n nj dskip imelt ijth jmelt vnds nds tt cgso cgdo cgbo meto cgsl cgdl ckappa cbs cbd cj mj pb fc cjsw mjsw pbsw cjswg mjswg pbswg fcsw capmod nqsmod acnqsmod dwc dlc clc cle cf elm vfbcv acde moin noff voffcv xpart llc lwc lwlc wlc wwc wwlc wmlt lmlt w l as ad ps pd nrd nrs version paramchk fullreinit level acm geo calcacm tnom trise tlev tlevc eg gap1 gap2 eglev diomod kt1 kt1l kt2 at ua1 ub1 uc1 prt trs trd ute xti pta tpb ptp tpbsw tpbswg cta tcj ctp tcjsw tcjswg noimod kf af ef noia noib noic noid wnoi em flkmod gamma nlev gdsnoi lintnoi agidl bgidl cgidl egidl agisl bgisl cgisl egisl bforward breverse cforward creverse tcc aigbinv bigbinv cigbinv eigbinv nigbinv aigbacc bigbacc cigbacc nigbacc aigsd bigsd cigsd aigc bigc cigc nigc pigcd dlcig ntox toxref poxedge igcmod igbmod wmax wmin lmax lmin alarm imax jmax bvj vbox warn apwarn xl xlref lagidl lbgidl lcgidl legidl xw xwref wagidl wbgidl wcgidl wegidl pagidl pbgidl pcgidl pegidl mvtwl mvtwl2 mvt0 mbewl mbe0 mismatchmod mismatchdist mos_method mos_vres sa0 saref sb0 sbref wlod ku0 kvsat kvth0 tku0 llodku0 wlodku0 llodvth wlodvth lku0 wku0 pku0 lkvth0 wkvth0 pkvth0 stk2 lodk2 steta0 lodeta0 wpemod web wec kvth0we k2we lkvth0we wkvth0we pkvth0we lk2we wk2we pk2we ku0we lku0we wku0we pku0we scref jtss jtsd jtssws jtsswd jtsswgs jtsswgd njts njtssw njtsswg mnr bnr cnr dnr xtss xtsd xtssws xtsswd xtsswgs xtsswgd tnjts tnjtssw tnjtsswg tmnr tcnr tdnr jsswg xjbv ijthrev nrfwd shrink shrink2 msgskip "
+"region reversed ids isub vgs vds vbs vgb vdb vgd vth vdsat vfbeff gm gds gmbs betaeff cjd cjs qb qg qd qbd qbs cgg cgd cgs cgb cdg cdd cds cdb csg csd css csb cbg cbd cbs cbb ron id is ibulk ibs ibd pwr gmoverid cgsovl cgdovl cgbovl i1 i3 i4 gbd gbs vgsteff qinv igd igs igb igcs igcd igidl igisl qgi qsi qdi qbi cddbi cbdbi cbsbi qsrco "
+"weff leff rseff rdeff aseff adeff pseff pdeff "
+"w l as ad ps pd nrd nrs m nqsmod acnqsmod isnoisy trise aforward areverse delvto mulmu0 mulu0 delk1 delnfct geo rdc rsc sa sb sca scb scc sc "
+"off triode sat subth breakdown "
+"d g s b "
+)
+"vsource" "primitive" (
+""
+"v i pwr "
+""
+"dc type fundname delay edgetype val0 val1 period rise fall width file offset scale stretch allbrkpts pwlperiod pwlperiodstart twidth sinedc ampl freq sinephase ampl2 freq2 sinephase2 fundname2 fmmodindex fmmodfreq fmmodfiles ammodindex ammodoffset ammodfreq ammodphase damp freqvec amplvec phasevec maxharms td1 tau1 td2 tau2 data rptstart rpttimes ref jitter seed taps noisefile mag phase xfmag pacmag pacphase m tc1 tc2 tnom "
+""
+"p n ctl "
+)
+END

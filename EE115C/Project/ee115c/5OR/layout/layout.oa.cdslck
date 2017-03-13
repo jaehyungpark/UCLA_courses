@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      jaehyung
+HostName                       eeapps01.seas.ucla.edu
+ProcessIdentifier              142886
+ProcessCreationTime_UTC        1489096748
+ProcessCreationTime_Readable   Thu Mar  9 13:59:08 2017 PST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /w/home.01/ee/ugrad/jaehyung/ee115c/ee115c/5OR/layout/layout.oa.cdslck.dirlck
+TimeEditLocked                 Thu Mar  9 14:02:24 2017 PST

@@ -1,0 +1,87 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.5 07/03/2012 17:24 (sjfdl238) $
+          : sub-version  IC6.1.5.500.12 
+Started at: 13-Mar-2017  07:39:29
+User Name : jaehyung
+Host Name : eeapps01.seas.ucla.edu
+Directory : /w/home.01/ee/ugrad/jaehyung/ee115c
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+INFO (XSTRM-288): The automatic layer mapping is done by StreamOut and the xStrmOut_layerMap.txt file is generated. This is because either the layer mapping is not provided or the XST_AUTO_LM value is used with the -layerMap option.
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 ee115c
+strmFile                                Abs_Value_Detector.gds
+topCell                                 Abs_Value_Detector
+view                                    layout
+logFile                                 strmOut.log
+techLib                                 gpdk090
+case                                    Preserve
+convertDot                              node
+
+INFO (XSTRM-223): 1. Translating cellView gpdk090/M2_M1v/layout as STRUCTURE M2_M1v_0
+INFO (XSTRM-223): 2. Translating cellView gpdk090/M3_M2v/layout as STRUCTURE M3_M2v_1
+INFO (XSTRM-223): 3. Translating cellView gpdk090/M4_M3v/layout as STRUCTURE M4_M3v_2
+INFO (XSTRM-223): 4. Translating cellView gpdk090/M1_POv/layout as STRUCTURE M1_POv_3
+INFO (XSTRM-223): 5. Translating cellView gpdk090/M1_PSUB/layout as STRUCTURE M1_PSUB_4
+INFO (XSTRM-223): 6. Translating cellView gpdk090/M1_NWELL/layout as STRUCTURE M1_NWELL_5
+INFO (XSTRM-223): 7. Translating cellView ee115c/NOT/layout as STRUCTURE NOT
+INFO (XSTRM-180): You have not used the objectMap option. The design has instance(s) of at least one of following OpenAccess objects: oaBlockage, oaBoundary, oaRow, and oaMarker. Any information about these objects will not be translated into the generated stream file. Use the objectMap option to translate/preserve these objects using XStream. For details on the objectMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+INFO (XSTRM-223): 8. Translating cellView gpdk090/M2_M1v/layout as STRUCTURE M2_M1v_6
+INFO (XSTRM-223): 9. Translating cellView gpdk090/M1_PSUB/layout as STRUCTURE M1_PSUB_7
+INFO (XSTRM-223): 10. Translating cellView gpdk090/M1_NWELL/layout as STRUCTURE M1_NWELL_8
+INFO (XSTRM-223): 11. Translating cellView ee115c/NAND2/layout as STRUCTURE NAND2
+INFO (XSTRM-223): 12. Translating cellView ee115c/XORG/layout as STRUCTURE XORG
+INFO (XSTRM-223): 13. Translating cellView gpdk090/M1_NWELL/layout as STRUCTURE M1_NWELL_9
+INFO (XSTRM-223): 14. Translating cellView gpdk090/M1_PSUB/layout as STRUCTURE M1_PSUB_10
+INFO (XSTRM-223): 15. Translating cellView ee115c/AND/layout as STRUCTURE AND
+INFO (XSTRM-223): 16. Translating cellView ee115c/HAdder/layout as STRUCTURE HAdder
+INFO (XSTRM-223): 17. Translating cellView ee115c/OR/layout as STRUCTURE OR
+INFO (XSTRM-223): 18. Translating cellView ee115c/MUXblock/layout as STRUCTURE MUXblock
+INFO (XSTRM-223): 19. Translating cellView ee115c/ABSol/layout as STRUCTURE ABSol
+INFO (XSTRM-223): 20. Translating cellView gpdk090/M3_M2v/layout as STRUCTURE M3_M2v_11
+INFO (XSTRM-223): 21. Translating cellView ee115c/NOR/layout as STRUCTURE NOR
+INFO (XSTRM-223): 22. Translating cellView ee115c/comparator/layout as STRUCTURE comparator
+INFO (XSTRM-223): 23. Translating cellView ee115c/Abs_Value_Detector/layout as STRUCTURE Abs_Value_Detector
+INFO (XSTRM-223): 24. Translating cellView gpdk090/nmos1v/layout as STRUCTURE nmos1v_0
+INFO (XSTRM-223): 25. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_1
+INFO (XSTRM-223): 26. Translating cellView gpdk090/nmos1v/layout as STRUCTURE nmos1v_2
+INFO (XSTRM-223): 27. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_3
+INFO (XSTRM-223): 28. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_4
+INFO (XSTRM-223): 29. Translating cellView gpdk090/nmos1v/layout as STRUCTURE nmos1v_5
+INFO (XSTRM-223): 30. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_6
+INFO (XSTRM-223): 31. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_7
+INFO (XSTRM-223): 32. Translating cellView gpdk090/nmos1v/layout as STRUCTURE nmos1v_8
+INFO (XSTRM-223): 33. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_9
+INFO (XSTRM-223): 34. Translating cellView gpdk090/pmos1v/layout as STRUCTURE pmos1v_10
+INFO (XSTRM-223): 35. Translating cellView gpdk090/nmos1v/layout as STRUCTURE nmos1v_11
+
+Summary of Objects Translated:
+	Scalar Instances:                       89
+	Array Instances:                        0
+	Polygons:                               0
+	Paths:                                  0
+	Rectangles:                             351
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           299
+	Custom Vias:                            0
+	Pathsegs:                               1323
+	Text:                                   71
+	Cells:                                  35
+
+Elapsed Time: 0.4s   User Time: 0.4s   CPU Time: 0.1s   Peak VM: 1063KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '0' warning(s) found.

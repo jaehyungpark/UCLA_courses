@@ -1,0 +1,50 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  6 23:12:03 2017 " )
+ (Cell  "\\MUXblock\\"
+  (View  "schematic"
+   (Inst "\\I0\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"Out\\\" on instance \\\"I0\\\": floating input.\")")
+	 ("partName" "NOT")
+	 ("vendorName" "")
+	 ("portOrder" "(\"GND\" \"In\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:24:34 2017")
+	 ("\\pin#\\" "4")
+	 ("XY" "(-1.562500,0.437500)")
+	))
+   (Inst "\\I2\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"Out\\\" on instance \\\"I2\\\": floating input.\")")
+	 ("partName" "AND")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:14:37 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(0.062500,-0.625000)")
+	))
+   (Inst "\\I1\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"Out\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("ignoreCheck2" "(\"SRC\" \"Warning: Pin \\\"B\\\" on instance \\\"I1\\\": floating input.\")")
+	 ("partName" "AND")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 16:14:37 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(0.062500,0.625000)")
+	))
+   (Inst "\\I4\\"
+	(Pr
+	 ("ignoreCheck1" "(\"SRC\" \"Warning: Pin \\\"A\\\" on instance \\\"I4\\\": floating input.\")")
+	 ("ignoreCheck2" "(\"SRC\" \"Warning: Pin \\\"B\\\" on instance \\\"I4\\\": floating input.\")")
+	 ("partName" "OR")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A\" \"B\" \"GND\" \"Out\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  5 18:20:41 2017")
+	 ("\\pin#\\" "5")
+	 ("XY" "(0.812500,0.500000)")
+	))
+  )
+ )
+)

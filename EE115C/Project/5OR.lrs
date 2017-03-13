@@ -1,0 +1,35 @@
+@(#)$CDS: nvn version av4.1:Production:dfII6.1.5:IC6.1.5.500.10 08/01/2012 08:05 (sfrh156) $
+sub-version 4.1_USR2_HF20, integ signature 2012-08-01-0707
+run on eeapps01.seas.ucla.edu at Thu Mar  9 11:38:27 2017
+
+Schematic           | Layout                              | Status
+-------------------------------------------------------------------------------
+5OR schematic ee115c| 5OR layout ee115c                   | matched         
+
+Schematic and Layout Match
+
+Schematic:
+  Library:ee115c
+  Cell   :5OR
+  View   :schematic
+
+Layout:
+  Library:ee115c
+  Cell   :5OR
+  View   :layout
+
+
+
+Extraction  Information
+--------------------
+     0 cells have 0 mal-formed device problems
+     0 cells have 0 label short problems
+     0 cells have 0 label open problems
+
+Mismatch  Information
+--------------------
+     0 cells have 0 Net mismatches
+     0 cells have 0 Device mismatches
+     0 cells have 0 Pin mismatches
+     0 cells have 0 Parameter mismatches
+

@@ -1,0 +1,790 @@
+HEADER
+"PSFversion" "1.00"
+"simulator" "spectre"
+"version" "7.1.1.071"
+"date" "8:02:38 AM, Tue Jan 24, 2017"
+"design" "// Generated for: spectre"
+"analysis type" "info"
+"analysis name" "designParamVals"
+"analysis description" "Circuit Information"
+"xVecSorted" "unsorted"
+"tolerance.relative" 0.00100000
+TYPE
+"top-level" STRUCT(
+"temp" FLOAT DOUBLE
+"tnom" FLOAT DOUBLE
+"time" FLOAT DOUBLE
+"VDS" FLOAT DOUBLE
+"VGS" FLOAT DOUBLE
+"VSB" FLOAT DOUBLE
+"s1v_rs_ne" FLOAT DOUBLE
+"s1v_vsat_ne" FLOAT DOUBLE
+"s1v_pldd_surf" FLOAT DOUBLE
+"s1v_uc1_ne" FLOAT DOUBLE
+"s1v_u0_ne" FLOAT DOUBLE
+"s1v_nch_ne" FLOAT DOUBLE
+"s1v_rsc_ne" FLOAT DOUBLE
+"s1v_cgbo_ne" FLOAT DOUBLE
+"s1v_prt_ne" FLOAT DOUBLE
+"s1v_rdc_ne" FLOAT DOUBLE
+"s1v_vth0_ne" FLOAT DOUBLE
+"s1v_k2_ne" FLOAT DOUBLE
+"s1v_cgdo_ne" FLOAT DOUBLE
+"s1v_ckappa_ne" FLOAT DOUBLE
+"s1v_wint_ne" FLOAT DOUBLE
+"s1v_k1_ne" FLOAT DOUBLE
+"s1v_cgsl_ne" FLOAT DOUBLE
+"s1v_nldd_surf" FLOAT DOUBLE
+"s1v_js_ne" FLOAT DOUBLE
+"s1v_hdif_ne" FLOAT DOUBLE
+"s1v_rdsw_ne" FLOAT DOUBLE
+"s1v_jsw_ne" FLOAT DOUBLE
+"s1v_tox_ne" FLOAT DOUBLE
+"s1v_cj_ne" FLOAT DOUBLE
+"s1v_cjsw_ne" FLOAT DOUBLE
+"s1v_ldif_ne" FLOAT DOUBLE
+"s1v_xj_ne" FLOAT DOUBLE
+"s1v_rd_ne" FLOAT DOUBLE
+"s1v_pb_ne" FLOAT DOUBLE
+"s1v_cf_ne" FLOAT DOUBLE
+"s1v_lint_ne" FLOAT DOUBLE
+"s1v_cjswg_ne" FLOAT DOUBLE
+"s1v_rsh_ne" FLOAT DOUBLE
+"s1v_u0_pe" FLOAT DOUBLE
+"s1v_nch_pe" FLOAT DOUBLE
+"s1v_rsc_pe" FLOAT DOUBLE
+"s1v_cgbo_pe" FLOAT DOUBLE
+"s1v_rdc_pe" FLOAT DOUBLE
+"s1v_vth0_pe" FLOAT DOUBLE
+"s1v_k2_pe" FLOAT DOUBLE
+"s1v_cgdo_pe" FLOAT DOUBLE
+"s1v_ckappa_pe" FLOAT DOUBLE
+"s1v_wint_pe" FLOAT DOUBLE
+"s1v_k1_pe" FLOAT DOUBLE
+"s1v_cgsl_pe" FLOAT DOUBLE
+"s1v_js_pe" FLOAT DOUBLE
+"s1v_hdif_pe" FLOAT DOUBLE
+"s1v_rdsw_pe" FLOAT DOUBLE
+"s1v_jsw_pe" FLOAT DOUBLE
+"s1v_tox_pe" FLOAT DOUBLE
+"s1v_cj_pe" FLOAT DOUBLE
+"s1v_cjsw_pe" FLOAT DOUBLE
+"s1v_ldif_pe" FLOAT DOUBLE
+"s1v_xj_pe" FLOAT DOUBLE
+"s1v_rd_pe" FLOAT DOUBLE
+"s1v_pb_pe" FLOAT DOUBLE
+"s1v_cf_pe" FLOAT DOUBLE
+"s1v_lint_pe" FLOAT DOUBLE
+"s1v_cjswg_pe" FLOAT DOUBLE
+"s1v_rsh_pe" FLOAT DOUBLE
+"s1v_rs_pe" FLOAT DOUBLE
+"s1v_vsat_pe" FLOAT DOUBLE
+"lp_rs_ne" FLOAT DOUBLE
+"lp_vsat_ne" FLOAT DOUBLE
+"lp_pldd_surf" FLOAT DOUBLE
+"lp_uc1_ne" FLOAT DOUBLE
+"lp_u0_ne" FLOAT DOUBLE
+"lp_nch_ne" FLOAT DOUBLE
+"lp_rsc_ne" FLOAT DOUBLE
+"lp_cgbo_ne" FLOAT DOUBLE
+"lp_prt_ne" FLOAT DOUBLE
+"lp_rdc_ne" FLOAT DOUBLE
+"lp_vth0_ne" FLOAT DOUBLE
+"lp_k2_ne" FLOAT DOUBLE
+"lp_cgdo_ne" FLOAT DOUBLE
+"lp_ckappa_ne" FLOAT DOUBLE
+"lp_wint_ne" FLOAT DOUBLE
+"lp_k1_ne" FLOAT DOUBLE
+"lp_cgsl_ne" FLOAT DOUBLE
+"lp_nldd_surf" FLOAT DOUBLE
+"lp_js_ne" FLOAT DOUBLE
+"lp_hdif_ne" FLOAT DOUBLE
+"lp_rdsw_ne" FLOAT DOUBLE
+"lp_jsw_ne" FLOAT DOUBLE
+"lp_tox_ne" FLOAT DOUBLE
+"lp_cj_ne" FLOAT DOUBLE
+"lp_cjsw_ne" FLOAT DOUBLE
+"lp_ldif_ne" FLOAT DOUBLE
+"lp_xj_ne" FLOAT DOUBLE
+"lp_rd_ne" FLOAT DOUBLE
+"lp_pb_ne" FLOAT DOUBLE
+"lp_cf_ne" FLOAT DOUBLE
+"lp_lint_ne" FLOAT DOUBLE
+"lp_cjswg_ne" FLOAT DOUBLE
+"lp_rsh_ne" FLOAT DOUBLE
+"lp_u0_pe" FLOAT DOUBLE
+"lp_nch_pe" FLOAT DOUBLE
+"lp_rsc_pe" FLOAT DOUBLE
+"lp_cgbo_pe" FLOAT DOUBLE
+"lp_rdc_pe" FLOAT DOUBLE
+"lp_vth0_pe" FLOAT DOUBLE
+"lp_k2_pe" FLOAT DOUBLE
+"lp_cgdo_pe" FLOAT DOUBLE
+"lp_ckappa_pe" FLOAT DOUBLE
+"lp_wint_pe" FLOAT DOUBLE
+"lp_k1_pe" FLOAT DOUBLE
+"lp_cgsl_pe" FLOAT DOUBLE
+"lp_js_pe" FLOAT DOUBLE
+"lp_hdif_pe" FLOAT DOUBLE
+"lp_rdsw_pe" FLOAT DOUBLE
+"lp_jsw_pe" FLOAT DOUBLE
+"lp_tox_pe" FLOAT DOUBLE
+"lp_cj_pe" FLOAT DOUBLE
+"lp_cjsw_pe" FLOAT DOUBLE
+"lp_ldif_pe" FLOAT DOUBLE
+"lp_xj_pe" FLOAT DOUBLE
+"lp_rd_pe" FLOAT DOUBLE
+"lp_pb_pe" FLOAT DOUBLE
+"lp_cf_pe" FLOAT DOUBLE
+"lp_lint_pe" FLOAT DOUBLE
+"lp_cjswg_pe" FLOAT DOUBLE
+"lp_rsh_pe" FLOAT DOUBLE
+"lp_rs_pe" FLOAT DOUBLE
+"lp_vsat_pe" FLOAT DOUBLE
+"hv_rs_ne" FLOAT DOUBLE
+"hv_vsat_ne" FLOAT DOUBLE
+"hv_pldd_surf" FLOAT DOUBLE
+"hv_uc1_ne" FLOAT DOUBLE
+"hv_u0_ne" FLOAT DOUBLE
+"hv_nch_ne" FLOAT DOUBLE
+"hv_rsc_ne" FLOAT DOUBLE
+"hv_cgbo_ne" FLOAT DOUBLE
+"hv_prt_ne" FLOAT DOUBLE
+"hv_rdc_ne" FLOAT DOUBLE
+"hv_vth0_ne" FLOAT DOUBLE
+"hv_k2_ne" FLOAT DOUBLE
+"hv_cgdo_ne" FLOAT DOUBLE
+"hv_ckappa_ne" FLOAT DOUBLE
+"hv_wint_ne" FLOAT DOUBLE
+"hv_k1_ne" FLOAT DOUBLE
+"hv_cgsl_ne" FLOAT DOUBLE
+"hv_nldd_surf" FLOAT DOUBLE
+"hv_js_ne" FLOAT DOUBLE
+"hv_hdif_ne" FLOAT DOUBLE
+"hv_rdsw_ne" FLOAT DOUBLE
+"hv_jsw_ne" FLOAT DOUBLE
+"hv_tox_ne" FLOAT DOUBLE
+"hv_cj_ne" FLOAT DOUBLE
+"hv_cjsw_ne" FLOAT DOUBLE
+"hv_ldif_ne" FLOAT DOUBLE
+"hv_xj_ne" FLOAT DOUBLE
+"hv_rd_ne" FLOAT DOUBLE
+"hv_pb_ne" FLOAT DOUBLE
+"hv_cf_ne" FLOAT DOUBLE
+"hv_lint_ne" FLOAT DOUBLE
+"hv_cjswg_ne" FLOAT DOUBLE
+"hv_rsh_ne" FLOAT DOUBLE
+"hv_u0_pe" FLOAT DOUBLE
+"hv_nch_pe" FLOAT DOUBLE
+"hv_rsc_pe" FLOAT DOUBLE
+"hv_cgbo_pe" FLOAT DOUBLE
+"hv_rdc_pe" FLOAT DOUBLE
+"hv_vth0_pe" FLOAT DOUBLE
+"hv_k2_pe" FLOAT DOUBLE
+"hv_cgdo_pe" FLOAT DOUBLE
+"hv_ckappa_pe" FLOAT DOUBLE
+"hv_wint_pe" FLOAT DOUBLE
+"hv_k1_pe" FLOAT DOUBLE
+"hv_cgsl_pe" FLOAT DOUBLE
+"hv_js_pe" FLOAT DOUBLE
+"hv_hdif_pe" FLOAT DOUBLE
+"hv_rdsw_pe" FLOAT DOUBLE
+"hv_jsw_pe" FLOAT DOUBLE
+"hv_tox_pe" FLOAT DOUBLE
+"hv_cj_pe" FLOAT DOUBLE
+"hv_cjsw_pe" FLOAT DOUBLE
+"hv_ldif_pe" FLOAT DOUBLE
+"hv_xj_pe" FLOAT DOUBLE
+"hv_rd_pe" FLOAT DOUBLE
+"hv_pb_pe" FLOAT DOUBLE
+"hv_cf_pe" FLOAT DOUBLE
+"hv_lint_pe" FLOAT DOUBLE
+"hv_cjswg_pe" FLOAT DOUBLE
+"hv_rsh_pe" FLOAT DOUBLE
+"hv_rs_pe" FLOAT DOUBLE
+"hv_vsat_pe" FLOAT DOUBLE
+"s1v_rs_necap" FLOAT DOUBLE
+"s1v_vsat_necap" FLOAT DOUBLE
+"s1v_pldd_surfcap" FLOAT DOUBLE
+"s1v_uc1_necap" FLOAT DOUBLE
+"s1v_u0_necap" FLOAT DOUBLE
+"s1v_nch_necap" FLOAT DOUBLE
+"s1v_rsc_necap" FLOAT DOUBLE
+"s1v_cgbo_necap" FLOAT DOUBLE
+"s1v_prt_necap" FLOAT DOUBLE
+"s1v_rdc_necap" FLOAT DOUBLE
+"s1v_vth0_necap" FLOAT DOUBLE
+"s1v_k2_necap" FLOAT DOUBLE
+"s1v_cgdo_necap" FLOAT DOUBLE
+"s1v_ckappa_necap" FLOAT DOUBLE
+"s1v_wint_necap" FLOAT DOUBLE
+"s1v_k1_necap" FLOAT DOUBLE
+"s1v_cgsl_necap" FLOAT DOUBLE
+"s1v_nldd_surfcap" FLOAT DOUBLE
+"s1v_js_necap" FLOAT DOUBLE
+"s1v_hdif_necap" FLOAT DOUBLE
+"s1v_rdsw_necap" FLOAT DOUBLE
+"s1v_jsw_necap" FLOAT DOUBLE
+"s1v_tox_necap" FLOAT DOUBLE
+"s1v_cj_necap" FLOAT DOUBLE
+"s1v_cjsw_necap" FLOAT DOUBLE
+"s1v_ldif_necap" FLOAT DOUBLE
+"s1v_xj_necap" FLOAT DOUBLE
+"s1v_rd_necap" FLOAT DOUBLE
+"s1v_pb_necap" FLOAT DOUBLE
+"s1v_cf_necap" FLOAT DOUBLE
+"s1v_lint_necap" FLOAT DOUBLE
+"s1v_cjswg_necap" FLOAT DOUBLE
+"s1v_rsh_necap" FLOAT DOUBLE
+"s1v_u0_pecap" FLOAT DOUBLE
+"s1v_nch_pecap" FLOAT DOUBLE
+"s1v_rsc_pecap" FLOAT DOUBLE
+"s1v_cgbo_pecap" FLOAT DOUBLE
+"s1v_rdc_pecap" FLOAT DOUBLE
+"s1v_vth0_pecap" FLOAT DOUBLE
+"s1v_k2_pecap" FLOAT DOUBLE
+"s1v_cgdo_pecap" FLOAT DOUBLE
+"s1v_ckappa_pecap" FLOAT DOUBLE
+"s1v_wint_pecap" FLOAT DOUBLE
+"s1v_k1_pecap" FLOAT DOUBLE
+"s1v_cgsl_pecap" FLOAT DOUBLE
+"s1v_js_pecap" FLOAT DOUBLE
+"s1v_hdif_pecap" FLOAT DOUBLE
+"s1v_rdsw_pecap" FLOAT DOUBLE
+"s1v_jsw_pecap" FLOAT DOUBLE
+"s1v_tox_pecap" FLOAT DOUBLE
+"s1v_cj_pecap" FLOAT DOUBLE
+"s1v_cjsw_pecap" FLOAT DOUBLE
+"s1v_ldif_pecap" FLOAT DOUBLE
+"s1v_xj_pecap" FLOAT DOUBLE
+"s1v_rd_pecap" FLOAT DOUBLE
+"s1v_pb_pecap" FLOAT DOUBLE
+"s1v_cf_pecap" FLOAT DOUBLE
+"s1v_lint_pecap" FLOAT DOUBLE
+"s1v_cjswg_pecap" FLOAT DOUBLE
+"s1v_rsh_pecap" FLOAT DOUBLE
+"s1v_rs_pecap" FLOAT DOUBLE
+"s1v_vsat_pecap" FLOAT DOUBLE
+"lp_rs_necap" FLOAT DOUBLE
+"lp_vsat_necap" FLOAT DOUBLE
+"lp_pldd_surfcap" FLOAT DOUBLE
+"lp_uc1_necap" FLOAT DOUBLE
+"lp_u0_necap" FLOAT DOUBLE
+"lp_nch_necap" FLOAT DOUBLE
+"lp_rsc_necap" FLOAT DOUBLE
+"lp_cgbo_necap" FLOAT DOUBLE
+"lp_prt_necap" FLOAT DOUBLE
+"lp_rdc_necap" FLOAT DOUBLE
+"lp_vth0_necap" FLOAT DOUBLE
+"lp_k2_necap" FLOAT DOUBLE
+"lp_cgdo_necap" FLOAT DOUBLE
+"lp_ckappa_necap" FLOAT DOUBLE
+"lp_wint_necap" FLOAT DOUBLE
+"lp_k1_necap" FLOAT DOUBLE
+"lp_cgsl_necap" FLOAT DOUBLE
+"lp_nldd_surfcap" FLOAT DOUBLE
+"lp_js_necap" FLOAT DOUBLE
+"lp_hdif_necap" FLOAT DOUBLE
+"lp_rdsw_necap" FLOAT DOUBLE
+"lp_jsw_necap" FLOAT DOUBLE
+"lp_tox_necap" FLOAT DOUBLE
+"lp_cj_necap" FLOAT DOUBLE
+"lp_cjsw_necap" FLOAT DOUBLE
+"lp_ldif_necap" FLOAT DOUBLE
+"lp_xj_necap" FLOAT DOUBLE
+"lp_rd_necap" FLOAT DOUBLE
+"lp_pb_necap" FLOAT DOUBLE
+"lp_cf_necap" FLOAT DOUBLE
+"lp_lint_necap" FLOAT DOUBLE
+"lp_cjswg_necap" FLOAT DOUBLE
+"lp_rsh_necap" FLOAT DOUBLE
+"lp_u0_pecap" FLOAT DOUBLE
+"lp_nch_pecap" FLOAT DOUBLE
+"lp_rsc_pecap" FLOAT DOUBLE
+"lp_cgbo_pecap" FLOAT DOUBLE
+"lp_rdc_pecap" FLOAT DOUBLE
+"lp_vth0_pecap" FLOAT DOUBLE
+"lp_k2_pecap" FLOAT DOUBLE
+"lp_cgdo_pecap" FLOAT DOUBLE
+"lp_ckappa_pecap" FLOAT DOUBLE
+"lp_wint_pecap" FLOAT DOUBLE
+"lp_k1_pecap" FLOAT DOUBLE
+"lp_cgsl_pecap" FLOAT DOUBLE
+"lp_js_pecap" FLOAT DOUBLE
+"lp_hdif_pecap" FLOAT DOUBLE
+"lp_rdsw_pecap" FLOAT DOUBLE
+"lp_jsw_pecap" FLOAT DOUBLE
+"lp_tox_pecap" FLOAT DOUBLE
+"lp_cj_pecap" FLOAT DOUBLE
+"lp_cjsw_pecap" FLOAT DOUBLE
+"lp_ldif_pecap" FLOAT DOUBLE
+"lp_xj_pecap" FLOAT DOUBLE
+"lp_rd_pecap" FLOAT DOUBLE
+"lp_pb_pecap" FLOAT DOUBLE
+"lp_cf_pecap" FLOAT DOUBLE
+"lp_lint_pecap" FLOAT DOUBLE
+"lp_cjswg_pecap" FLOAT DOUBLE
+"lp_rsh_pecap" FLOAT DOUBLE
+"lp_rs_pecap" FLOAT DOUBLE
+"lp_vsat_pecap" FLOAT DOUBLE
+"hv_rs_necap" FLOAT DOUBLE
+"hv_vsat_necap" FLOAT DOUBLE
+"hv_pldd_surfcap" FLOAT DOUBLE
+"hv_uc1_necap" FLOAT DOUBLE
+"hv_u0_necap" FLOAT DOUBLE
+"hv_nch_necap" FLOAT DOUBLE
+"hv_rsc_necap" FLOAT DOUBLE
+"hv_cgbo_necap" FLOAT DOUBLE
+"hv_prt_necap" FLOAT DOUBLE
+"hv_rdc_necap" FLOAT DOUBLE
+"hv_vth0_necap" FLOAT DOUBLE
+"hv_k2_necap" FLOAT DOUBLE
+"hv_cgdo_necap" FLOAT DOUBLE
+"hv_ckappa_necap" FLOAT DOUBLE
+"hv_wint_necap" FLOAT DOUBLE
+"hv_k1_necap" FLOAT DOUBLE
+"hv_cgsl_necap" FLOAT DOUBLE
+"hv_nldd_surfcap" FLOAT DOUBLE
+"hv_js_necap" FLOAT DOUBLE
+"hv_hdif_necap" FLOAT DOUBLE
+"hv_rdsw_necap" FLOAT DOUBLE
+"hv_jsw_necap" FLOAT DOUBLE
+"hv_tox_necap" FLOAT DOUBLE
+"hv_cj_necap" FLOAT DOUBLE
+"hv_cjsw_necap" FLOAT DOUBLE
+"hv_ldif_necap" FLOAT DOUBLE
+"hv_xj_necap" FLOAT DOUBLE
+"hv_rd_necap" FLOAT DOUBLE
+"hv_pb_necap" FLOAT DOUBLE
+"hv_cf_necap" FLOAT DOUBLE
+"hv_lint_necap" FLOAT DOUBLE
+"hv_cjswg_necap" FLOAT DOUBLE
+"hv_rsh_necap" FLOAT DOUBLE
+"hv_u0_pecap" FLOAT DOUBLE
+"hv_nch_pecap" FLOAT DOUBLE
+"hv_rsc_pecap" FLOAT DOUBLE
+"hv_cgbo_pecap" FLOAT DOUBLE
+"hv_rdc_pecap" FLOAT DOUBLE
+"hv_vth0_pecap" FLOAT DOUBLE
+"hv_k2_pecap" FLOAT DOUBLE
+"hv_cgdo_pecap" FLOAT DOUBLE
+"hv_ckappa_pecap" FLOAT DOUBLE
+"hv_wint_pecap" FLOAT DOUBLE
+"hv_k1_pecap" FLOAT DOUBLE
+"hv_cgsl_pecap" FLOAT DOUBLE
+"hv_js_pecap" FLOAT DOUBLE
+"hv_hdif_pecap" FLOAT DOUBLE
+"hv_rdsw_pecap" FLOAT DOUBLE
+"hv_jsw_pecap" FLOAT DOUBLE
+"hv_tox_pecap" FLOAT DOUBLE
+"hv_cj_pecap" FLOAT DOUBLE
+"hv_cjsw_pecap" FLOAT DOUBLE
+"hv_ldif_pecap" FLOAT DOUBLE
+"hv_xj_pecap" FLOAT DOUBLE
+"hv_rd_pecap" FLOAT DOUBLE
+"hv_pb_pecap" FLOAT DOUBLE
+"hv_cf_pecap" FLOAT DOUBLE
+"hv_lint_pecap" FLOAT DOUBLE
+"hv_cjswg_pecap" FLOAT DOUBLE
+"hv_rsh_pecap" FLOAT DOUBLE
+"hv_rs_pecap" FLOAT DOUBLE
+"hv_vsat_pecap" FLOAT DOUBLE
+"rnw" FLOAT DOUBLE
+"rnl" FLOAT DOUBLE
+"rns" FLOAT DOUBLE
+"rnwo" FLOAT DOUBLE
+"rpl" FLOAT DOUBLE
+"rps" FLOAT DOUBLE
+"rpwo" FLOAT DOUBLE
+) PROP(
+"key" "parameters"
+)
+VALUE
+"top-level" "top-level" (
+27.0000
+27.0000
+0.00000
+0.500000
+0.200000
+0.500000
+0.00000
+112000.
+6.00000e+19
+3.70000e-10
+0.0200000
+5.20000e+17
+4.08248e-14
+1.48200e-11
+10.0000
+4.08248e-14
+0.169266
+0.00000
+2.66760e-10
+4.60534
+6.00000e-09
+0.282535
+1.11150e-10
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+2.33000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+4.59461e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0120000
+4.00000e+17
+2.88675e-14
+1.39236e-11
+2.88675e-14
+-0.135951
+0.00000
+2.50625e-10
+10.4348
+5.00000e-09
+0.263752
+1.04427e-10
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+2.48000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+4.52712e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+0.00000
+112000.
+6.00000e+19
+-6.42000e-11
+0.0200000
+8.50000e+17
+4.08248e-14
+1.48200e-11
+0.00000
+4.08248e-14
+0.274229
+0.00000
+2.66760e-10
+4.60534
+6.00000e-09
+0.361226
+1.11150e-10
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+2.33000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+4.59461e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0120000
+6.70000e+17
+2.88675e-14
+1.39236e-11
+2.88675e-14
+-0.240580
+0.00000
+2.50625e-10
+10.4348
+5.00000e-09
+0.341353
+1.04427e-10
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+2.48000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+4.52712e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+0.00000
+112000.
+6.00000e+19
+-6.42000e-11
+0.0330000
+4.00000e+17
+4.08248e-14
+6.16618e-12
+0.00000
+4.08248e-14
+0.448543
+0.00000
+1.10991e-10
+26.6027
+6.00000e-09
+0.595569
+4.62463e-11
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+5.60000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+3.65412e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0220000
+3.30000e+17
+2.88675e-14
+5.95355e-12
+2.88675e-14
+-0.402355
+0.00000
+1.07164e-10
+57.0736
+5.00000e-09
+0.560272
+4.46516e-11
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+5.80000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+3.61696e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+0.00000
+112000.
+6.00000e+19
+3.70000e-10
+0.0200000
+5.20000e+17
+4.08248e-14
+1.48200e-11
+10.0000
+4.08248e-14
+0.169266
+0.00000
+2.66760e-10
+4.60534
+6.00000e-09
+0.282535
+1.11150e-10
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+2.33000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+4.59461e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0120000
+4.00000e+17
+2.88675e-14
+1.39236e-11
+2.88675e-14
+-0.135951
+0.00000
+2.50625e-10
+10.4348
+5.00000e-09
+0.263752
+1.04427e-10
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+2.48000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+4.52712e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+0.00000
+112000.
+6.00000e+19
+-6.42000e-11
+0.0200000
+8.50000e+17
+4.08248e-14
+1.48200e-11
+0.00000
+4.08248e-14
+0.274229
+0.00000
+2.66760e-10
+4.60534
+6.00000e-09
+0.361226
+1.11150e-10
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+2.33000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+4.59461e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0120000
+6.70000e+17
+2.88675e-14
+1.39236e-11
+2.88675e-14
+-0.240580
+0.00000
+2.50625e-10
+10.4348
+5.00000e-09
+0.341353
+1.04427e-10
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+2.48000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+4.52712e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+0.00000
+112000.
+6.00000e+19
+-6.42000e-11
+0.0200000
+4.00000e+17
+4.08248e-14
+6.16618e-12
+0.00000
+4.08248e-14
+0.448543
+0.00000
+1.10991e-10
+26.6027
+6.00000e-09
+0.595569
+4.62463e-11
+3.00000e+19
+3.36667e-06
+1.40000e-07
+3.90000e-06
+3.36667e-10
+5.60000e-09
+0.000798354
+4.79012e-11
+1.00000e-08
+2.50000e-08
+0.00000
+0.991852
+3.65412e-11
+1.50000e-08
+1.99588e-11
+10.0000
+0.0120000
+3.30000e+17
+2.88675e-14
+5.95355e-12
+2.88675e-14
+-0.402355
+0.00000
+1.07164e-10
+57.0736
+5.00000e-09
+0.560272
+4.46516e-11
+3.35000e-06
+1.40000e-07
+7.80000e-06
+3.35000e-10
+5.80000e-09
+0.000791225
+4.74735e-11
+1.00000e-08
+2.50000e-08
+0.00000
+1.00981
+3.61696e-11
+1.50000e-08
+1.97806e-11
+20.0000
+0.00000
+100000.
+409.000
+6.58000
+6.70000
+72.7500
+7.20000
+7.32000
+145.870
+)
+END

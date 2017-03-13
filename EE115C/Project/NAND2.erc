@@ -1,0 +1,12 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'NAND2 layout ee115c':
+  info: Assign pin label "GND" at (1.6200, -4.9600) to layer `Metal1_p'.
+  info: Assign pin label "B" at (1.8150, -3.1050) to layer `Metal1_p'.
+  info: Assign pin label "VDD" at (1.7550, -1.4950) to layer `Metal1_p'.
+  info: Assign pin label "OUT" at (3.5550, -3.2450) to layer `Metal1_p'.
+  info: Assign pin label "A" at (3.5500, -2.9250) to layer `Metal1_p'.
+
+***** End of Label Report *****
+

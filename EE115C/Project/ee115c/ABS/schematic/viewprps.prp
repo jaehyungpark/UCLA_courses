@@ -1,0 +1,17 @@
+(PropertyFile "1.0"
+ (Creator " HDL Direct ver ver-date" )
+ (Created " Mar  6 17:22:57 2017 " )
+ (Cell  "\\ABS\\"
+  (View  "schematic"
+   (Inst "\\I0\\"
+	(Pr
+	 ("partName" "12to1MUX")
+	 ("vendorName" "")
+	 ("portOrder" "(\"A0\" \"A1\" \"A2\" \"A3\" \"A4\" \"A5\" \"B0\" \"B1\" \"B2\" \"B3\" \"B4\" \"B5\" \"GND\" \"Out0\" \"Out1\" \"Out2\" \"Out3\" \"Out4\" \"Out5\" \"Selector\" \"Vdd\")")
+	 ("interfaceLastChanged" "Mar  6 17:03:54 2017")
+	 ("\\pin#\\" "21")
+	 ("XY" "(-0.125000,0.625000)")
+	))
+  )
+ )
+)

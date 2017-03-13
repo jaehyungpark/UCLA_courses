@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Jan 24 07:56:49 2017
+// Design library name: ee115c
+// Design cell name: NMOS_IV
+// Design view name: schematic
+simulator lang=spectre
+global 0
