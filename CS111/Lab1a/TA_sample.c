@@ -6,7 +6,7 @@ int main() {
 		int from_child_pipe[2];
 		pid_t child_pid = -1;
 
-		if (pip(to_child_pipe) == -1) {
+		if (pipe(to_child_pipe) == -1) {
 			fprintf(stderr, "pipe() failed\n");
 			exit(1);
 		}

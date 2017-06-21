@@ -1,0 +1,21 @@
+CS 111 Lab1a
+Jaehyung Park
+504212821
+
+For lab 1a, the simpleton shell, or simph takes arguments of rdonly, wronly, command, and verbose options.
+The program will accept arguments with multiple options, such as --rdonly --wronly --wronly --command or
+--verbose --rdonly --wronly --wronly --command and produce the commands that were used after the verbose
+option.
+
+One thing to add, running the test cases given by the TA on piazza, the program passes 8 cases, but
+fails test case 6, writing over a none existing file. I spent a whole day to solve this problem, but
+couldn't find the solution to solve this issue. Since test case 6 only involves the wronly option, I am
+assmuning the switch statement in "wronly" is causing a bug, but not really sure how to solve it.
+
+For the make file,
+default lets make to build the simpsh program.
+To proceed the following commands, make should be executed first to create needed files.
+make clean removes all unnecessary and temporary files and object files and keeps the original files.
+These files include README, Makefile, test.sh, and simpsh.c.
+make check tests the simpsh program on some test cases by running test.sh.
+make dist makes a software distribution and produces a tar.gz file that includes all the necessary files.

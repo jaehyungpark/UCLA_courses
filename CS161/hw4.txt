@@ -1,0 +1,128 @@
+CS 161 HW 4
+Jaehyung Park
+504212821
+
+Question 1) Is the instance satisfiable?
+
+I load hw4.lsp via clisp and used the following command:
+(graph-coloring-to-sat "graph1.txt" "s1.txt" 3), after generating s1.txt, used rsat to check the CNF:
+
+One thing to mention, the rsat.sh file does check for satisfiability, but doesn't produce the output.
+Becuase of this, to check if the instance is satisfiable, I ran ./SatElite s1.txt.
+To check if the instance if it has 0 conflicts, I ran ./rsat s1.txt
+
+Results:
+c CNF stats: (21 vars, 64 clauses)
+c Decisions: 12
+c Conflicts: 10
+c Time: 0.00000s
+s UNSATISFIABLE
+
+Looking at the results, with 3 colors, the instance in unsatisfiable.
+
+
+Question 2) This time with 4 colors, is the instance satisfiable?
+
+Did the same thing as Question 1, but used 4 colors instead of 3.
+
+Results:
+c CNF stats: (28 vars, 97 clauses)
+c Decisions: 11
+c Conflicts: 0
+c Time: 0.00000s
+s SATISFIABLE
+
+Looking at the results, with 4 colors, the instance is satisfiable.
+
+
+Question 3) What do the answers of these two SAT instances tell you about the graph coloring problem of the above graph? 
+Can you give a solution (a coloring) to the graph coloring problem of the above graph based on the results of RSat?
+
+According to the previous 2 questions, we can see that we need at least 4 colors to be satisfiable and have 0 conflicts.
+
+Below is the output after running rsat with 4 colors:
+((-5 -25) (-6 -26) (-7 -27) (-8 -28) (-13 -21) (-14 -22) (-15 -23) (-16 -24)
+ (-9 -25) (-10 -26) (-11 -27) (-12 -28) (-1 -17) (-2 -18) (-3 -19) (-4 -20)
+ (-1 -21) (-2 -22) (-3 -23) (-4 -24) (-1 -25) (-2 -26) (-3 -27) (-4 -28)
+ (-21 -25) (-22 -26) (-23 -27) (-24 -28) (-17 -21) (-18 -22) (-19 -23)
+ (-20 -24) (-13 -17) (-14 -18) (-15 -19) (-16 -20) (-9 -13) (-10 -14) (-11 -15)
+ (-12 -16) (-5 -9) (-6 -10) (-7 -11) (-8 -12) (-1 -5) (-2 -6) (-3 -7) (-4 -8)
+ (25 26 27 28) (-25 -26) (-25 -27) (-25 -28) (-26 -27) (-26 -28) (-27 -28)
+ (21 22 23 24) (-21 -22) (-21 -23) (-21 -24) (-22 -23) (-22 -24) (-23 -24)
+ (17 18 19 20) (-17 -18) (-17 -19) (-17 -20) (-18 -19) (-18 -20) (-19 -20)
+ (13 14 15 16) (-13 -14) (-13 -15) (-13 -16) (-14 -15) (-14 -16) (-15 -16)
+ (9 10 11 12) (-9 -10) (-9 -11) (-9 -12) (-10 -11) (-10 -12) (-11 -12)
+ (5 6 7 8) (-5 -6) (-5 -7) (-5 -8) (-6 -7) (-6 -8) (-7 -8) (1 2 3 4) (-1 -2)
+ (-1 -3) (-1 -4) (-2 -3) (-2 -4) (-3 -4))
+
+For a possible solutions to the graph, we can have: Red, Green, Blue, White (RGBW)
+1: Red
+2: Green
+3: Blue
+4: Green
+5: White
+6: Blue
+7: White
+
+
+Question 4) What is the minimum number of colors required to properly color this graph?
+
+This time, we will be going over the same process as of Question 1 but using graph2.txt instead.
+I ran through command: (graph-coloring-to-sat "graph2.txt" "s3.txt" c) as c will vary from 3 to whatever value to the point where 
+the SAT problem becomes satisfiable. I also checked where it produced 0 conflicts.
+(Used both rsat and SatElite)
+
+c = 3
+c CNF stats: (150 vars, 1865 clauses)
+c Decisions: 8
+c Conflicts: 7
+c Time: 0.00000s
+s UNSATISFIABLE
+
+c = 4
+c CNF stats: (200 vars, 2570 clauses)
+c Decisions: 39
+c Conflicts: 32
+c Time: 0.00000s
+s UNSATISFIABLE
+
+c = 5
+c CNF stats: (250 vars, 3325 clauses)
+c Decisions: 179
+c Conflicts: 159
+c Time: 0.00000s
+s UNSATISFIABLE
+
+c = 6
+c CNF stats: (300 vars, 4130 clauses)
+c Decisions: 2806
+c Conflicts: 2212
+c Time: 0.06000s
+s UNSATISFIABLE
+
+...
+
+c = 8 ----------------> satisfiable
+c CNF stats: (400 vars, 5890 clauses)
+c Decisions: 941
+c Conflicts: 557
+c Time: 0.02000s
+s SATISFIABLE
+
+...
+
+c = 10
+c CNF stats: (500 vars, 7850 clauses)
+c Decisions: 213
+c Conflicts: 29
+c Time: 0.00000s
+s SATISFIABLE
+
+c = 11 ----------------> 0 conflicts
+c CNF stats: (550 vars, 8905 clauses)
+c Decisions: 209
+c Conflicts: 0
+c Time: 0.00000s
+s SATISFIABLE
+
+As a result, we can see that for c = 8, graph2.txt becomes SATISFIABLE and with c = 11, there are no conflicts

@@ -1,0 +1,22 @@
+CS 111 Lab1b
+Jaehyung Park
+504212821
+
+For lab 1b, it builds from the previous lab1a simpleton shell code and takes much more flag options to
+parse through. This time, the code takes pipe and various subcommand options.
+
+One thing to add, I was thinking rather I should add extra lines of code just in case the table index
+reaches to it's buffer limit (TABLE_SIZE) and use realloc to increase the size, but the code itself
+ran through the testing script without any issues so I left it with 1000 entries. (this can be adjustable)
+
+One other thing to add is that for some cases, actually checks the invalid message using fprintf with
+stderr and the signum number in the message. I spend hours to solve this issue while I failed one of the
+test cases countless times.
+
+For the Make file,
+default lets make to build the simpsh program (just as lab1a)
+To proceed the following commands, make should be executed first to create needed files.
+make clean removes all unnecessary and temporary files and object files and keeps the original files.
+These files include README, Makefile, test.sh, and simpsh.c.
+make check tests the simpsh program on some test cases by running test.sh.
+make dist makes a software distribution and produces a tar.gz file that includes all the necessary files.

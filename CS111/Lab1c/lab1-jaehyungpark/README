@@ -1,0 +1,52 @@
+CS 111 Lab1c
+Jaehyung Park
+504212821
+
+For lab 1c, it builds from the previous lab1a and labb simpleton shell code and takes a profile option
+to prompt user and system times.
+
+One thing to add is that for some cases, actually checks the invalid message using fprintf with
+stderr and the signum number in the message. I spend hours to solve this issue while I failed one of the
+test cases countless times. (maybe I haven't read the specs carefully and missed some out)
+
+Unlike last time, I added extra lines of code as if the table index reaches to it's maximum limit and
+occurs an overflow. It will reallocate twice the size.
+
+For lab1c, I used getrusage to output the usertime and system time while running through the executable
+file with different/multiple options.
+I created 3 .sh files to test for bash, dash, and simpsh and ran through severl test cases to measure the time. 
+
+For the makefile, 
+*default make lets Makefile to build the simpsh executable program (just as lab1a)
+To proceed the following commands, make should be executed first to create needed files.
+*make clean removes all unnecessary and temporary files and object files and keeps the original files.
+These files include README, Makefile, test.sh, and simpsh.c.
+*make check tests the simpsh program on some test cases by running test.sh.
+If there are no issues running the test script, it will produce no error messages.
+*make dist makes a software distribution and produces a tar.gz file that includes all the necessary files.
+
+used /dev/urandom and /dev/zero to create a medium sized file (about 50mb) that is filled with random
+and zeros in zeros.txt, randoms.txt, and randoms2.txt respectively.
+
+Addition to the test.sh for make check, I added 2 other test case shell script files for that can run
+on each three different shell environments.
+There are total 4 test cases I used for each benchmark. The descriptions are below:
+Benchmark 1: create a medium sized file (50mb) filled with randoms and zeros in a text file
+Benchmark 2: Used sort on the created file by sending out data trough pipes and cat command
+Benchmark 3: Used uniq command to filter out the file
+Benchmark 4: Used sed command
+- bash_benchmark.sh
+- simpsh_benchmark.sh
+
+I was having trouble implementing test cases using dash. I kept debugging the code, but it wouldn't
+output both user and system times.
+
+Below are the results:
+Benchmark 1: Bash - User time: 0.000s, System time: 0.002s
+             Simpsh - User time: 0.01293 seconds, System time: 0.012459 seconds
+Benchmark 2: Bash - User time: 0.004s, System time: 0.004s
+             Simpsh - User time: 0.021400 seconds, System time: 0.022528 seconds
+Benchmark 3: Bash - User time: 0.004s, System time: 0.001s
+             Simpsh - User time: 0.015088 seconds, System time: 0.003017 seconds
+Benchmark 4: Bash - User time: 0.004s, System time: 0.001s
+             Simpsh - User time: 0.052457 seconds, System time: 0.006052 seconds

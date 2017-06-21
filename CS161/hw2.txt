@@ -1,0 +1,67 @@
+CS 161
+Homework 2
+Jaehyung Park
+504212821
+
+Question 1
+The answer code is written in hw2.lsp.
+For the test cases, I ran the ones that were given in the hw spec.
+
+*BFS(FRINGE)
+
+> (BFS '(ROOT))
+(ROOT)
+> (BFS '((((L E) F) T)))
+(T F L E)
+> (BFS '((R (I (G (H T))))))
+(R I G H T)
+> (BFS '(((A (B)) C (D))))
+(C A D B)
+> (BFS '((T (H R E) E)))
+(T E H R E)
+> (BFS '((A ((C ((E) D)) B))))
+
+
+Question 2
+
+*FINAL-STATE(s)
+> (FINAL-STATE '(T T T T))
+T
+> (FINAL-STATE '(T T T nil))
+NIL
+
+*NEXT-STATE(S A)
+> (NEXT-STATE '(T T T nil) 'h)
+nil
+> (NEXT-STATE '(T T nil nil) 'h)
+((nil T nil nil))
+> (NEXT-STATE '(nil T T nil) 'b)
+nil
+> (NEXT-STATE '(T T nil T) 'p)
+((nil T nil nil))
+> (NEXT-STATE '(nil T T T) 'h)
+nil
+
+*SUCC-FN(S)
+> (SUCC-FN '(T T T T)
+((nil nil T T))
+> (SUCC-FN '(nil nil T T'))
+((T nil T T) (T T T T))
+> (SUCC-FN '(T nil T nil))
+nil
+
+*ON-PATH(S STATES)
+> (ON-PATH '(T T nil T) '((nil T T nil) (T nil nil nil) (T T T nil)))
+nil
+> (ON-PATH'(T T nil T) '((T T nil T) (T nil T nil) (T nil nil nil)))
+T
+
+*MULT-DFS(STATES PATH)
+> (MULT-DFS '(T T T T) '(nil T nil nil))
+nil
+
+*DFS(S PATH)
+> (DFS '(T nil nil nil nil) nil)
+nil
+> (DFS '(T T nil nil nil) nil)
+((T T nil nil nil) (nil T nil nil) (T T T nil) (nil nil T nil) (T nil T T) (nil nil T T) (T T T T)

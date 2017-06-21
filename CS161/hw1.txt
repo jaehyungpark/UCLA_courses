@@ -1,0 +1,133 @@
+CS 161 Assignment 1
+Jaehyung Park
+504212821
+
+# Question 1
+Running through some test cases,
+[2]> (PAD 0)
+1
+[3]> (PAD 1)
+1
+[4]> (PAD 2)
+1
+[5]> (PAD 3)
+2
+[6]> (PAD 4)
+2
+[7]> (PAD 5)
+3
+[8]> (PAD 6)
+4
+[9]> (PAD 7)
+5
+[10]> (PAD 8)
+7
+[11]> (PAD 9)
+9
+[12]> (PAD 10)
+12
+[13]> (PAD 14)
+37
+[14]> (PAD 18)
+114
+[15]> (PAD 20)
+200
+[16]> (PAD 25)
+816
+[17]> (PAD 28)
+1897
+[18]> (PAD 30)
+3329
+[19]> (PAD 35)
+13581
+[20]> (PAD 38)
+31572
+[21]> (PAD 40)
+55405
+[22]> (PAD 50)
+922111
+[23]> (PAD 60)
+15346786
+[24]> (PAD 70)
+
+For the first 10 padovan numbers, the result came out instantly without any hangs.
+As the number for N increases, from N = 50, it took a lot of time to execute the process.
+We can observe this because the data structure for PAD is a recursive binary tree that takes
+(O(2^N)) for the upper bound and the tree grows exponentially.
+Running (PAD 60) took about 5 to 6 minutes and (PAD 70) took more than 20 minutes and still 
+didn't produce the answer (on a mid 14 macbook pro)
+
+# Question 2
+Running through some test cases,
+[2]> (SUMS 0)
+0
+[3]> (SUMS 1)
+0
+[4]> (SUMS 2)
+0
+[5]> (SUMS 3)
+1
+[6]> (SUMS 4)
+1
+[7]> (SUMS 5)
+2
+[8]> (SUMS 6)
+3
+[9]> (SUMS 7)
+4
+[10]> (SUMS 8)
+6
+[11]> (SUMS 9)
+8
+[12]> (SUMS 10)
+11
+[13]> (SUMS 11)
+15
+[14]> (SUMS 12)
+20
+[15]> (SUMS 13)
+27
+[16]> (SUMS 14)
+36
+[17]> (SUMS 20)
+199
+[18]> (SUMS 25)
+815
+[19]> (SUMS 28)
+1896
+[20]> (SUMS 30)
+3328
+[21]> (SUMS 35)
+13580
+[22]> (SUMS 38)
+31571
+[23]> (SUMS 40)
+55404
+[24]> (SUMS 50)
+922110
+[25]> (SUMS 60)
+15346785
+
+For the first 10 padovan numbers, same as PAD, the result came out instantly without any hangs.
+Since SUMS has the same recursive tree structure as of PAD, SUMS also grows exponentially, making 
+it hard to execute N numbers over 50. Because of the condition, we can see that SUMS's result is 1
+less than PAD's result.
+
+# Question 3
+Running through the test cases given in the HW spec
+[2]> (ANON '42)
+?
+[3]> (ANON 'FOO)
+?
+[4]> (ANON '(((L E) F) T))
+(((? ?) ?) ?)
+[5]> (ANON '(5 FOO 3.1 -0.2))
+(? ? ? ?)
+[6]> (ANON '(1 (FOO 3.1) -0.2))
+(? (? ?) ?)
+[7]> (ANON '(((1 2)(FOO 3.1))(BAR -0.2)))
+(((? ?) (? ?)) (? ?))
+[8]> (ANON '(R (I (G (H T)))))
+(? (? (? (? ?))))
+
+Comparing the results, ANON gave out the proper outputs.
